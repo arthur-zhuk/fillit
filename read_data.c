@@ -6,11 +6,12 @@
 /*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 18:10:23 by zsmith            #+#    #+#             */
-/*   Updated: 2016/10/07 20:57:49 by zsmith           ###   ########.fr       */
+/*   Updated: 2016/10/07 22:10:38 by zsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "fillit.h"
 #include <fcntl.h>
 
 char	*read_data(char *av);
@@ -34,6 +35,9 @@ char	*input_data(char *av)
 	char	*ret;
 
 	ret = read_data(av);
+
+	ft_putstr("\ngrid check result:");
+	ft_putnbr(check_grid_size(ret));
 	// do checks
 	// reduce mino grids 
 
