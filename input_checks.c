@@ -6,7 +6,7 @@
 /*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 21:37:20 by zsmith            #+#    #+#             */
-/*   Updated: 2016/10/08 13:14:16 by zsmith           ###   ########.fr       */
+/*   Updated: 2016/10/08 15:00:49 by zsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "fillit.h"
 
 int		strlen_c(char *s, char c);
-
 
 int		check_grid_lines(char *input)
 {
