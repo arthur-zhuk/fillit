@@ -6,12 +6,12 @@
 /*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 21:37:20 by zsmith            #+#    #+#             */
-/*   Updated: 2016/10/08 13:14:16 by zsmith           ###   ########.fr       */
+/*   Updated: 2016/10/08 15:04:11 by azhuk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "fillit.h"
+#include "../include/libft.h"
+#include "../include/fillit.h"
 
 int		strlen_c(char *s, char c);
 
