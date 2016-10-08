@@ -6,7 +6,7 @@
 /*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 18:10:23 by zsmith            #+#    #+#             */
-/*   Updated: 2016/10/07 22:10:38 by zsmith           ###   ########.fr       */
+/*   Updated: 2016/10/08 14:26:08 by azhuk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*input_data(char *av)
 	ft_putstr("\ngrid check result:");
 	ft_putnbr(check_grid_size(ret));
 	// do checks
-	// reduce mino grids 
+	// reduce mino grids
 
 
 	return (ret);
