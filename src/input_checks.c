@@ -6,35 +6,36 @@
 /*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 21:37:20 by zsmith            #+#    #+#             */
-/*   Updated: 2016/10/08 16:33:50 by zsmith           ###   ########.fr       */
+/*   Updated: 2016/10/08 18:33:39 by zsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include "../include/fillit.h"
+#include "include/libft.h"
+#include "include/fillit.h"
 
-int		strlen_c(char *s, char c);
 
 int		check_grid_lines(char *input)
 {
 	int		new_lines;
-	int		grids;
-	int		spots;
 	int		i;
 
 	i = 0;
 	new_lines = 0;
-	spots = 0;
-	grids = 0;
 	while (input[i])
 	{
-		printf("i: %d, %c, nl: %d grids: %d\n", i, input[i], new_lines, grids);
+		//printf("i: %d, %c, nl: %d\n", i, input[i], new_lines);
 		if (input[i] == '\n')
-			new_lines++;
-		if (input[i] == '\n' && input[i + 1] == '\n')
 		{
+			new_lines++;
+			// printf("nl: %d\n", new_lines);
+		}
+
+		if ((input[i] == '\n' && input[i + 1] == '\n') || (input[i + 1] == '\0'))
+		{
+			printf("new_lines: %d\n", new_lines);
 			if (new_lines != 4)
 				return (0);
+			printf("~~~~~~~~~~~~~~~new grid~~~~~~~~~~~~~~\n");
 			new_lines = 0;
 			i++;
 		}
@@ -43,39 +44,15 @@ int		check_grid_lines(char *input)
 	return (1);
 }
 
-// int		check_grid_lines(char *input)
-// {
-// 	int		new_lines;
-// 	int		grids;
-// 	int		spots;
-// 	int		i;
+int		last_char_nl(char *input)
+{	
+	int		len;
 
-// 	i = 0;
-// 	new_lines = 0;
-// 	spots = 0;
-// 	grids = 0;
-// 	while (input[i])
-// 	{
-// 		printf("i: %d, %c, spots: %d, nl: %d grids: %d\n", i, input[i], spots, new_lines, grids);
-// 		if (input[i] == '.' || input[i] == '#')
-// 			spots++;
-// 		if (input[i] == '\n')
-// 		{
-// 			if (spots != 4)
-// 				return (0);
-// 			else
-// 				spots = 0;
-// 		}
-// 		if (input[i] == '\n' && input[i + 1] == '\n')
-// 		{
-// 			i++;
-// 			grids++;
-// 		}
-// 		i++;
-// 	}
-// 	return (1);
-// }
-
+	len = ft_strlen(input);
+	if (input[len] != '\n')
+		return (0);
+	return (1);
+}
 
 
 
