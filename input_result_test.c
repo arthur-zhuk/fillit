@@ -17,7 +17,7 @@ char	*line_check(char *av)
 	{
 		if (*ret == '\n')
 		{
-			printf("%d", i);
+			printf("%d\n", i);
 			i++;
 		}
 		ret++;
