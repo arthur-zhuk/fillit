@@ -1,21 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   read_data.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/07 18:10:23 by zsmith            #+#    #+#             */
-/*   Updated: 2016/10/08 18:33:57 by zsmith           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "include/libft.h"
 #include "include/fillit.h"
 #include <fcntl.h>
 
 char	*read_data(char *av);
 char	*input_data(char *av);
+int		line_check(char *av);
 
 int		main(int argc, char **argv)
 {
@@ -27,6 +16,7 @@ int		main(int argc, char **argv)
 	ft_putstr(argv[1]);
 	ft_putstr("\n");
 	input_data(argv[1]);
+	printf("%d", line_check(argv[1]));
 	return (0);
 }
 
@@ -44,7 +34,7 @@ char	*input_data(char *av)
 	// do checks
 	// reduce mino grids
 		// if only '\n', '.', '#'
-	
+
 		// num lines
 		// num columns
 		// propper fomatting (i.e. 1 line between each)
@@ -59,8 +49,8 @@ char	*read_data(char *av)
 	int		ret;
 
 	buf = (char *)malloc(sizeof(char) * 10000);
-	ft_putstr(av);
-	ft_putstr("\n");
+	/*ft_putstr(av);*/
+	/*ft_putstr("\n");*/
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 	{
