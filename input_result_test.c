@@ -1,11 +1,10 @@
-
 #include "./include/libft.h"
 #include "./include/fillit.h"
 #include <fcntl.h>
 
 char	*read_data(char *av);
 
-char	*line_check(char *av)
+int		line_check(char *av)
 {
 	char	*ret;
 	int		i;
@@ -15,13 +14,12 @@ char	*line_check(char *av)
 	printf("%s\n is my function working?", ret);
 	while (*ret)
 	{
-		if (*ret == '\n')
+		if (*ret == '\n' && *(ret - 1) == '\n')
 		{
-			printf("%d\n", i);
 			i++;
 		}
 		ret++;
 	}
 
-	return (ret);
+	return (i);
 }

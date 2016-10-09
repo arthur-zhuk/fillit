@@ -6,7 +6,7 @@
 /*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 18:10:23 by zsmith            #+#    #+#             */
-/*   Updated: 2016/10/08 15:58:54 by azhuk            ###   ########.fr       */
+/*   Updated: 2016/10/08 18:41:17 by azhuk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 char	*read_data(char *av);
 char	*input_data(char *av);
-char	*line_check(char *av);
+int		line_check(char *av);
 
 int		main(int argc, char **argv)
 {
@@ -25,10 +25,10 @@ int		main(int argc, char **argv)
 		ft_putstr("usage: fillit source_file");
 		return (0);
 	}
-	ft_putstr(argv[1]);
-	ft_putstr("\n");
-	input_data(argv[1]);
-	line_check(argv[1]);
+	/*ft_putstr(argv[1]);*/
+	/*ft_putstr("\n");*/
+	/*input_data(argv[1]);*/
+	printf("%d", line_check(argv[1]));
 	return (0);
 }
 
@@ -58,8 +58,8 @@ char	*read_data(char *av)
 	int		ret;
 
 	buf = (char *)malloc(sizeof(char) * 10000);
-	ft_putstr(av);
-	ft_putstr("\n");
+	/*ft_putstr(av);*/
+	/*ft_putstr("\n");*/
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 	{
