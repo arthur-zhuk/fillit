@@ -10,13 +10,17 @@ char	*line_check(char *av)
 	char	*ret;
 	int		i;
 
-	i = 0;
+	i = 1;
 	ret = read_data(av);
 	printf("%s\n is my function working?", ret);
-	while (i < *ret)
+	while (*ret)
 	{
-		printf("%d", i);
-		i++;
+		if (*ret == '\n')
+		{
+			printf("%d", i);
+			i++;
+		}
+		ret++;
 	}
 
 	return (ret);
