@@ -83,11 +83,14 @@ int		pre_shape_check(char *z)
 	{
 		if (i % 16 == 0)
 		{
-			inpt = ft_strdup_n(z, 16);
-			ans = shape_check(inpt, find_hash(z), 100, 0);
+			inpt = ft_strdup_n(&z[i], 15);
+			// printf("inpt: %s, index: %d, ", inpt, find_hash(inpt));
+			ans = shape_check(inpt, find_hash(inpt), 100, 0);
+			// printf("ans: %d\n", ans);
 			if (ans != 4)
 				return (0);
 			ft_bzero(inpt, 16);
+			// printf("-------------------------------------------\n");
 		}
 		i++;
 	}
@@ -114,8 +117,4 @@ char	*hash_to_letter(char *z)
 	}
 	return (z);
 }
-
-
-
-
 
