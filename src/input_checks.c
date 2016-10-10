@@ -6,12 +6,12 @@
 /*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 21:37:20 by zsmith            #+#    #+#             */
-/*   Updated: 2016/10/08 18:33:39 by zsmith           ###   ########.fr       */
+/*   Updated: 2016/10/09 09:36:11 by azhuk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libft.h"
-#include "include/fillit.h"
+#include "../include/libft.h"
+#include "../include/fillit.h"
 
 
 int		check_grid_lines(char *input)
@@ -45,7 +45,7 @@ int		check_grid_lines(char *input)
 }
 
 int		last_char_nl(char *input)
-{	
+{
 	int		len;
 
 	len = ft_strlen(input);
