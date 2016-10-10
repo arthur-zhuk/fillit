@@ -62,17 +62,21 @@ int		pre_shape_check(char *z)
 {
 	char	*inpt;
 	int		i;
-
+	int		ans;
+	printf("pre_shape_check\n");
 	i = 0;
-	inpt = ft_strdup_n(z, 16);
+	
 	while (z[i] != '\0')
 	{
 		if (i % 16 == 0)
 		{
-			if (shape_check(inpt, find_hash(z), 100, 0) != 4)
+			inpt = ft_strdup_n(z, 16);
+			ans = shape_check(inpt, find_hash(z), 100, 0);
+			if (ans != 4)
 				return (0);
+			ft_bzero(inpt, 16);
 		}
-		ft_bzero(inpt, 16);
+		i++;
 	}
 	free(inpt);
 	return (1);
@@ -83,7 +87,7 @@ int		shape_check(char *z, int indx, int prev, int ans)
 	// top
 	if (indx - 4 >= 0 && z[indx - 4] == '#' && indx - 4 != prev)
 	{
-		printf("top, index: %d, ans: %d\n", indx, ans);
+		// printf("top, index: %d, ans: %d\n", indx, ans);
 		ans = shape_check(z, indx - 4, indx, ans);
 	}
 
@@ -91,7 +95,7 @@ int		shape_check(char *z, int indx, int prev, int ans)
 	// right
 	if (indx % 4 != 3 && z[indx + 1] == '#' && indx + 1 != prev)
 	{
-		printf("right, index: %d, ans: %d\n", indx, ans);
+		// printf("right, index: %d, ans: %d\n", indx, ans);
 		ans = shape_check(z, indx + 1, indx, ans);
 	}
 
@@ -99,7 +103,7 @@ int		shape_check(char *z, int indx, int prev, int ans)
 	// bottom
 	if (indx + 4 < 16 && z[indx + 4] == '#' && indx + 4 != prev)
 	{
-		printf("bottom, index: %d, ans: %d\n", indx, ans);
+		// printf("bottom, index: %d, ans: %d\n", indx, ans);
 		ans = shape_check(z, indx + 4, indx, ans);
 	}
 
@@ -107,14 +111,14 @@ int		shape_check(char *z, int indx, int prev, int ans)
 	// left
 	if (indx % 4 != 0 && z[indx - 1] == '#' && indx - 1 != prev)
 	{
-		printf("left, index: %d, ans: %d\n", indx, ans);
+		// printf("left, index: %d, ans: %d\n", indx, ans);
 		ans = shape_check(z, indx - 1, indx, ans);
 	}
 
-	printf("\n\n-----fail>>>>>\n");
-	printf("ans: %d, index: %d, prev: %d\n", ans, indx, prev);
-	printf("%d, %c, %d\n", indx + 4, z[indx + 4], indx + 4 != prev);
-	printf("^^^^^^^fail-----\n\n\n");
+	// printf("\n\n-----fail>>>>>\n");
+	// printf("ans: %d, index: %d, prev: %d\n", ans, indx, prev);
+	// printf("%d, %c, %d\n", indx + 4, z[indx + 4], indx + 4 != prev);
+	// printf("^^^^^^^fail-----\n\n\n");
 	return (ans + 1);
 	
 
@@ -170,6 +174,15 @@ int		shape_check(char *z, int indx, int prev, int ans)
 
 	> if none return 0
 
+shape = shape_check("......##.##.....", 6, 100, 0);
+	shape = shape_check(".#..###.........", 1, 100, 0);
+	shape = shape_check(".....###.#......", 5, 100, 0);
+	shape = shape_check("#...#...#...#...", 0, 100, 0);
+	shape = shape_check(".....##...#...#.", 5, 100, 0);
+	int		shape;
+	shape = shape_check("......##..#...#.", 6, 100, 0);
+	printf("shape check: %d", shape);
+
 */
 	
 
@@ -198,7 +211,7 @@ int		find_hash(char *z)
 	i = 0;
 	while (z[i] != '#')
 		i++;
-	return (i - 1);
+	return (i);
 }
 
 
