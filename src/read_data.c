@@ -6,6 +6,7 @@
 char	*read_data(char *av);
 char	*input_data(char *av);
 int		line_check(char *av);
+int		line_cnt(char *av);
 
 int		main(int argc, char **argv)
 {
@@ -15,6 +16,14 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	input_data(argv[1]);
+
+	printf("\n\n");
+	printf("%d double \\n's \n", line_check(argv[1]));
+	if (line_cnt(argv[1]))
+		printf("%d - This tetri is 16 chars in size\n", line_cnt(argv[1]));
+	else
+		printf("This tetri isn't 16 chars in size");
+
 	return (0);
 }
 
