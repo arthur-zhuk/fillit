@@ -14,28 +14,27 @@ int		main(int argc, char **argv)
 		ft_putstr("usage: fillit source_file");
 		return (0);
 	}
-	ft_putstr(argv[1]);
-	ft_putstr("\n");
 	input_data(argv[1]);
+
 	printf("\n\n");
 	printf("%d double \\n's \n", line_check(argv[1]));
 	if (line_cnt(argv[1]))
 		printf("%d - This tetri is 16 chars in size\n", line_cnt(argv[1]));
 	else
 		printf("This tetri isn't 16 chars in size");
+
 	return (0);
 }
 
 char	*input_data(char *av)
 {
 	char	*ret;
+	int		s;
 
 	ret = read_data(av);
-	printf("------\n");
-	printf("%s\n", ret);
-	printf("------\n");
-	printf("end with nl: %d\n", last_char_nl(ret));
-	printf("grid check resutl: %d", check_grid_lines(ret));
+	s = tetrimino_count(ret);
+	printf("num minos: %d\n", s);
+	printf("nl check: %d", nl_check(ret, s));
 
 	// do checks
 	// reduce mino grids
