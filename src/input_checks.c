@@ -41,15 +41,3 @@ int		last_char_nl(char *input)
 		return (0);
 	return (1);
 }
-
-/*Not done with the symbol checker; using it as a placeholder*/
-int		symbol_check(char *input)
-{
-	while (*input)
-	{
-		if (*input != '#' || *input != '.' || *input != '\n')
-			return (0);
-		input++;
-	}
-	return (1);
-}
