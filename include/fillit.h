@@ -17,6 +17,7 @@ int		find_hash(char *z);
 int		pre_shape_check(char *z);
 
 
-int 	line_check(char *av);
+int		line_cnt(char *av);
+int		line_check(char *av);
 
 #endif
