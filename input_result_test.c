@@ -36,15 +36,12 @@ int		line_cnt(char *av)
 		if (*ret != '\n' && (*ret == '#' || *ret == '.'))
 		{
 			i++;
-			if
 			printf("%d", i);
 		}
-
 		if (*ret == '\n' && *(ret - 1) == '\n')
 		{
 			break;
 		}
-
 		i = 0;
 		ret++;
 	}
@@ -70,16 +67,3 @@ int		valid_row(char *av)
 		ret++;
 	}
 }
-/*int		dbl_line(char *av)*/
-/*{*/
-	/*char	*ret;*/
-	/*int		i;*/
-
-	/*i = 0;*/
-	/*ret = read_data(av);*/
-
-	/*while (*ret)*/
-	/*{*/
-		/*if (*ret == '\n' )*/
-	/*}*/
-/*}*/

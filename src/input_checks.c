@@ -52,5 +52,4 @@ int		symbol_check(char *input)
 		input++;
 	}
 	return (1);
-
 }
