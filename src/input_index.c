@@ -13,9 +13,9 @@ int		tetrimino_count(char *z)
 	printf("i: %d\n", i);
 	i++;
 
-	if (i % 21 != 0)
+	if (i % 21 == 0)
 		return (0);
-	return (i / 21);
+	return (i + 1 / 21);
 }
 
 int		nl_check(char *z, int num_minos)
@@ -26,7 +26,15 @@ int		nl_check(char *z, int num_minos)
 	while (	z[i] != '\0' )
 	{
 		if ((i - (i / 21)) % 5 == 4 && z[i] != '\n')
+		{
+			printf("im in 1");
 			return (0);
+		}
+		if ((i - (i / 21)) % 5 < 4 && (z[i] != '#' && z[i] != '.'))
+		{
+			printf("%d im in 2. I'm a:  %c\n", i, z[i]);
+			return (0);
+		}
 		if ((i % 21) == 0 && z[i - 1] != '\n' && i != 0)
 		{
 			printf("i: %d\n", i);
@@ -49,7 +57,7 @@ char	*rm_nl(char *z)
 	while (z[i] != '\0')
 	{
 		if (z[i] != '\n')
-		{	
+		{
 			ret[j] = z[i];
 			j++;
 		}
@@ -116,7 +124,7 @@ int		shape_check(char *z, int indx, int prev, int ans)
 	printf("%d, %c, %d\n", indx + 4, z[indx + 4], indx + 4 != prev);
 	printf("^^^^^^^fail-----\n\n\n");
 	return (ans + 1);
-	
+
 
 }
 
@@ -149,7 +157,7 @@ int		shape_check(char *z, int indx, int prev, int ans)
 8  9  10 11
 .  #  #  .
 
-12 13 14 15      
+12 13 14 15
 .  .  .  .
 
 
@@ -158,8 +166,8 @@ int		shape_check(char *z, int indx, int prev, int ans)
 > pass in individual mino string, and coordinates of first hash
 > find first hash
 > function( first hash) : return ( 1 + funtion( next hash))
-	
-	> check top.  
+
+	> check top.
 		if found #, then recursively call function on that hash
 	> check right
 		if found #, then recursively call function on that hash
@@ -171,7 +179,7 @@ int		shape_check(char *z, int indx, int prev, int ans)
 	> if none return 0
 
 */
-	
+
 
 char	*ft_strdup_n(const char *src, int n)
 {

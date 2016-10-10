@@ -18,11 +18,11 @@ int		main(int argc, char **argv)
 	input_data(argv[1]);
 
 	printf("\n\n");
-	printf("%d double \\n's \n", line_check(argv[1]));
-	if (line_cnt(argv[1]))
-		printf("%d - This tetri is 16 chars in size\n", line_cnt(argv[1]));
-	else
-		printf("This tetri isn't 16 chars in size");
+	/*line_check(argv[1]);*/
+	/*if (line_cnt(argv[1]))*/
+		/*printf("%d - This tetri is 16 chars in size\n", line_cnt(argv[1]));*/
+	/*else*/
+		/*printf("This tetri isn't 16 chars in size");*/
 
 	return (0);
 }
@@ -31,14 +31,16 @@ char	*input_data(char *av)
 {
 	char	*ret;
 
-	// int		s;
+	int		s;
 	// int		shape;
 
 	ret = read_data(av);
-	// printf("nl check: %d", nl_check(ret, s));
+	printf("nl check: %d", nl_check(ret, s));
 	// Arthur: add function that checks the new line between each mino
-	ret = rm_nl(ret);
-	printf("all good shapes? : %d", pre_shape_check(ret));
+	/*ret = rm_nl(ret);*/
+
+
+	/*printf("all good shapes? : %d", pre_shape_check(ret));*/
 	//s = tetrimino_count(ret);
 	// printf("num minos: %d\n", s);
 

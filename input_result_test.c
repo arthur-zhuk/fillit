@@ -8,9 +8,12 @@ int		line_check(char *av)
 {
 	char	*ret;
 	int		i;
+	int		j;
 
 	i = 0;
 	ret = read_data(av);
+	j = tetrimino_count(ret);
+
 	printf("%s\n", ret);
 	while (*ret)
 	{
@@ -20,7 +23,12 @@ int		line_check(char *av)
 		}
 		ret++;
 	}
-	return (i);
+	if (i+1 != j)
+	{
+		printf("%s %d %s %d \n", "double n's", i, "tetris", j);
+		return (0);
+	}
+	return (1);
 }
 
 int		line_cnt(char *av)
@@ -33,11 +41,6 @@ int		line_cnt(char *av)
 
 	while (*ret)
 	{
-		if (*ret != '\n' && (*ret == '#' || *ret == '.'))
-		{
-			i++;
-			printf("%d", i);
-		}
 		if (*ret == '\n' && *(ret - 1) == '\n')
 		{
 			break;
@@ -48,22 +51,4 @@ int		line_cnt(char *av)
 	if (i != 16)
 			return (0);
 	return (1);
-}
-
-int		valid_row(char *av)
-{
-	char	*ret;
-	int		i;
-
-	ret = read_data(av);
-	i = 0;
-	while (*ret != '\n')
-	{
-		if (*ret == '#' || *ret == '.')
-		{
-			i++;
-			printf("%d", i);
-		}
-		ret++;
-	}
 }
