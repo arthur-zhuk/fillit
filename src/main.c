@@ -14,6 +14,5 @@ int		main(int argc, char **argv)
 	if (!ret)
 		return (0);
 	prnt_str2grid(ret);
-
 	return (0);
 }

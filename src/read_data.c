@@ -10,7 +10,11 @@ char	*input_data(char *av)
 
 	i = -1;
 	ret = read_data(av);
-
+	if (ret == 0)
+	{
+		free(ret);
+		return (0);
+	}
 	num_minos = tetrimino_count(ret);
 	check[0] = nl_check(ret, num_minos);
 	check[1] = dot_hash_check(ret);
