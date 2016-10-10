@@ -1,17 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   input_checks.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/07 21:37:20 by zsmith            #+#    #+#             */
-/*   Updated: 2016/10/08 18:33:39 by zsmith           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-#include "include/libft.h"
-#include "include/fillit.h"
+#include "../include/libft.h"
+#include "../include/fillit.h"
 
 
 int		check_grid_lines(char *input)
