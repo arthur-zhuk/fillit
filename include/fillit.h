@@ -23,7 +23,7 @@ int		dot_hash_check(char *z);
 int		input_error(int	*check);
 char	*hash_to_letter(char *z);
 void	prnt_str2grid(char *z);
-
+char	place_piece(char *z);
 
 
 
