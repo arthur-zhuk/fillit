@@ -4,6 +4,8 @@
 int		main(int argc, char **argv)
 {
 	/*char	*ret;*/
+	argc = 0; // edit this later
+	argv = NULL; // edit this later
 
 
 	place_piece("...#...#...#...#");
