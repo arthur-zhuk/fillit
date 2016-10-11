@@ -1,12 +1,12 @@
 #include "../include/fillit.h"
 #include "../include/libft.h"
 
-int		nl_check(char *z, int num_minos)
+int		nl_check(char *z)
 {
 	int		i;
 
 	i = 0;
-	while (	z[i] != '\0' )
+	while (z[i] != '\0')
 	{
 		if ((i - (i / 21)) % 5 == 4 && z[i] != '\n')
 			return (0);
