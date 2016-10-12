@@ -7,6 +7,12 @@
 #include <errno.h> // errno
 #include <stdlib.h>
 
+typedef struct 		s_coord
+{
+	int 			y;
+	int				x;
+}					t_coord;
+
 char	*read_data(char *av);
 char	*input_data(char *av);
 int		check_grid_lines(char *input);
@@ -48,6 +54,9 @@ char	*solve_entrance(char *z);
 int		min_x_point(char **mino);
 int		min_y_point(char **mino);
 int		open_space(char **grid, int start, int size);
+int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc);
+int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc);
+int		iterate_grid_coord(t_coord *gc, int size);
 
 
 
