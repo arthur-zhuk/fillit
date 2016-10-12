@@ -56,7 +56,8 @@ int		min_y_point(char **mino);
 int		open_space(char **grid, int start, int size);
 int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc);
 int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc);
-int		iterate_grid_coord(t_coord *gc, int size);
+int		h_iterate_grid_coord(t_coord *gc, int size);
+int		h_new_line(t_coord *coords, int size);
 
 
 
