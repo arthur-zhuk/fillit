@@ -16,8 +16,8 @@
 ** > if there is room, then we will need to place the piece
 ** > haven't gotten to that yet
 **
-** > how to access the information in a struct:
-**		> mc->x = whatever the x is 
+** > how to access the information in a struct pointer:
+**		> mc->x 
 **
 **
 **
@@ -54,57 +54,76 @@ char	*solve_entrance(char *z)
 int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
 {
 	// iterate through lines
-	int		i;
-	int		size;
+	// if this function should return 1 unless the map is full
+	// if the map is full then we need to recurse
 
-	i = 0;
-	size = 5;
-	while (mc -> y + i < 4 && gc -> y + i < size)
-	{
-		printf("in while i: %d\n", i);
+
+
+
+		printf("in while mc: %d, gc: %d\n", mc -> y, gc -> y);
 		if (s_compare(m, g, mc, gc))
-			i++;
-		else
-			iterate_grid_coord(mc, size);
-	}
+		{
+			printf("successful placement\n");
+		}
+		// else if (!(iterate_grid_coord(mc, size)))
+		// {
+		// 	printf("grid full");
+		// 	break;
+		// }
 
 	return (1);
 }
 
 int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc)
 {
+	// takes in a mino and coordinates on the map
+	// returns 1 if there is no conflict with that placement of the mino
 	int		i;
-	int		pass;
+	int		size;
 
-	pass = 1;		
+	size = 5;
 	i = 0;
-	// while g and m are both valid
-	// if m == '#' and g == '.'
-	// then g == '#'
 
-	while (m[mc -> y][mc -> x + i] != '\0' && g[gc -> y][gc -> x + i] != '\0')
+	while (mc -> y < 4 && gc -> y < size)
 	{
-		printf("mino [%d, %d] = %c\n", mc -> y, mc -> x + i, m[mc -> y][mc -> x + i]);
-		printf("grid [%d, %d] = %c\n\n", gc -> y, gc -> x + i, g[gc -> y][gc -> x + i]);
-		if (m[mc -> y][mc -> x + i] == '#' && g[gc -> y][gc -> x + i] != '.')
-			return (1);
-		i++;
+		while (m[mc -> y][mc -> x + i] != '\0' && g[gc -> y][gc -> x + i] != '\0')
+		{
+			printf("mino [%d, %d] = %c\n", mc -> y, mc -> x + i, m[mc -> y][mc -> x + i]);
+			printf("grid [%d, %d] = %c\n\n", gc -> y, gc -> x + i, g[gc -> y][gc -> x + i]);
+			if (m[mc -> y][mc -> x + i] != '.' && g[gc -> y][gc -> x + i] != '.')
+				return (0);
+			i++;
+		}
+		if(!(h_new_line(mc, 4)) || !(h_new_line(gc, size)))
+			break;
+		i = 0;
+		printf("mino y: %d, x: %d\n", mc -> y, mc -> x + i);
+		printf("grid y: %d, x: %d\n\n", gc -> y, gc -> x + i);
 	}
-
 	return (1);
 }
 
-int		iterate_grid_coord(t_coord *gc, int size)
+int		h_new_line(t_coord *coords, int size)
 {
-	if (gc -> x < size - 1)
+	if (coords -> y != size - 1)
 	{
-		gc -> x ++;
+		coords -> y++;
 		return (1);
 	}
-	else if (gc -> x == size - 1 && gc -> y != size - 1)
+	return (0);
+}
+
+int		iterate_grid_coord(t_coord *coords, int size)
+{
+	if (coords -> x < size - 1)
 	{
-		gc -> x = 0;
-		gc -> y ++;
+		coords -> x++;
+		return (1);
+	}
+	else if (coords -> x == size - 1 && coords -> y != size - 1)
+	{
+		coords -> x = 0;
+		coords -> y++;
 		return (1);
 	}
 	else
