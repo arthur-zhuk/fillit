@@ -69,7 +69,7 @@ int		find_open_space(char *map)
 int		fits(char *map, char *mino, int hash_index, int space_index)
 {
 	printf("fits hash_index: %d, space_index: %d\n", hash_index, space_index);
-	
+
 
 	int		i;
 	int		n;
@@ -82,7 +82,7 @@ int		fits(char *map, char *mino, int hash_index, int space_index)
 	i = 0;
 	i = hash_index;
 	v_off = -1 * (hash_index / 4) * 4;
-	h_off = -1 * h_min(mino); 
+	h_off = -1 * h_min(mino);
 	printf("hmin: %d, hash_index: %d, v_off: %d, h_off: %d\n",h_min(mino), hash_index, v_off, h_off);
 	offset = v_off + h_off;
 	printf("offset = %d\n", offset);
@@ -120,7 +120,6 @@ int		h_min(char *mino)
 	}
 	return (min);
 }
-
 
 
 
