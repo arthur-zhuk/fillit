@@ -89,4 +89,4 @@ int		input_error(int	*check)
 }
 
 
-// gcc src/main.c src/read_data.c src/input_index.c src/input_helpers.c -I include/fillit.h include/libft.h -L. -lft
+// gcc src/main.c src/read_data.c src/input_index.c src/input_helpers.c src/solve.c -I include/fillit.h include/libft.h -L. -lft
