@@ -77,7 +77,7 @@ void	prnt_str2grid(char *z)
 	{
 		printf("%c", z[i]);
 		if (i % 4 == 3)
-			printf("\n");
+		printf("\n");
 		i++;
 	}
 }
@@ -107,7 +107,7 @@ void	prnt_str2grid(char *z)
 8  9  10 11
 .  #  #  .
 
-12 13 14 15      
+12 13 14 15
 .  .  .  .
 
 
@@ -116,8 +116,8 @@ void	prnt_str2grid(char *z)
 > pass in individual mino string, and coordinates of first hash
 > find first hash
 > function( first hash) : return ( 1 + funtion( next hash))
-	
-	> check top.  
+
+	> check top.
 		if found #, then recursively call function on that hash
 	> check right
 		if found #, then recursively call function on that hash
