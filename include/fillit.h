@@ -12,7 +12,7 @@ int		check_grid_lines(char *input);
 int		last_char_nl(char *input);
 int		symbol_check(char *x);
 int		tetrimino_count(char *z);
-int		nl_check(char *z, int num_minos);
+int		nl_check(char *z);
 void	error_check(void);
 int		shape_check(char *z, int indx, int prev, int ans);
 char	*rm_nl(char *s);
@@ -39,7 +39,6 @@ int		h_min(char *mino);
 
 
 char	*ft_strdup_n(const char *src, int n);
-
 
 
 
