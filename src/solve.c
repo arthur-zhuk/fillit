@@ -122,7 +122,7 @@ int		h_min(char *mino)
 }
 
 
-
+git commit --amend --reset-author
 
 
 
