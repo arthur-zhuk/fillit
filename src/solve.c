@@ -90,7 +90,7 @@ int		fits(char *map, char *mino, int hash_index, int space_index)
 
 
 	n = 0;
-	while (mino[i + offset] != '\0')
+	while (mino[offset] != '\0')
 	{
 
 		if (mino[i] == '#')
@@ -99,7 +99,7 @@ int		fits(char *map, char *mino, int hash_index, int space_index)
 			printf("i: %d, n: %d\n", i, n);
 			map[n] = mino[i];
 		}
-		i++;
+		offset++;
 	}
 	//ft_putstr_sqr(map, 5);
 	return (0);
@@ -122,7 +122,6 @@ int		h_min(char *mino)
 }
 
 
-git commit --amend --reset-author
 
 
 
