@@ -5,8 +5,11 @@ int		main(int argc, char **argv)
 {
 	/*char	*ret;*/
 
+	char	*z;
 
-	place_piece("...#...#...#...#");
+	z = (char *)malloc(33);
+	ft_strcpy(z, "......##.##.....");
+	controller(z);
 
 	/*if (argc != 2)*/
 	/*{*/
@@ -19,3 +22,6 @@ int		main(int argc, char **argv)
 	/*prnt_str2grid(ret);*/
 	return (0);
 }
+
+
+//...#...#...#...#
