@@ -5,6 +5,7 @@
 #include <stdio.h> // printf
 #include <fcntl.h> // open
 #include <errno.h> // errno
+#include <stdlib.h>
 
 char	*read_data(char *av);
 char	*input_data(char *av);
@@ -36,9 +37,18 @@ int		fits(char *map, char *mino, int hash_index, int space_index);
 char	*up_left(char *z);
 void	ft_putstr_sqr(char *str, int w);
 int		h_min(char *mino);
-
-
 char	*ft_strdup_n(const char *src, int n);
+
+/*
+** 2d array solve
+*/
+
+char	**make_two_d(int x, int y, char *data);
+char	*solve_entrance(char *z);
+int		min_x_point(char **mino);
+int		min_y_point(char **mino);
+int		open_space(char **grid, int start, int size);
+
 
 
 
