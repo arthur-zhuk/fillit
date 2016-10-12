@@ -23,7 +23,24 @@ int		dot_hash_check(char *z);
 int		input_error(int	*check);
 char	*hash_to_letter(char *z);
 void	prnt_str2grid(char *z);
-char	place_piece(char *z);
+
+/*
+** solve
+*/
+
+char	*controller(char *z);
+char	*map_solver(char *z, char *map);
+int		*place_piece(char *z, int x);
+int		find_open_space(char *map);
+int		fits(char *map, char *mino, int hash_index, int space_index);
+char	*up_left(char *z);
+void	ft_putstr_sqr(char *str, int w);
+int		h_min(char *mino);
+
+
+char	*ft_strdup_n(const char *src, int n);
+
+
 
 
 
