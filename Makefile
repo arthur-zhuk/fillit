@@ -1,8 +1,8 @@
 NAME = fillit
 
-FLAG = -c -Wall -Werror -Wextra
+FLAG = -Wall -Werror -Wextra
 
-SRC = input_result_test.c src/input_checks.c src/input_helpers.c src/input_index.c src/main.c src/read_data.c
+SRC = input_result_test.c src/input_checks.c src/input_helpers.c src/input_index.c src/main.c src/read_data.c src/solve.c
 OBJ = $(SRC:.c=.o)
 INCLUDES = -I include/fillit.h include/libft.h include/solve.h
 LFLAGS = -L. -lft
@@ -12,7 +12,7 @@ LFLAGS = -L. -lft
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAG) $(RC) $(INCLUDES) $(LFLAGS)
+	gcc $(SRC) $(INCLUDES) $(LFLAGS)
 
 clean:
 	/bin/rm -f $(OBJ)
