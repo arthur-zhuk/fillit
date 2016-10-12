@@ -16,7 +16,7 @@ char	*input_data(char *av)
 		return (0);
 	}
 	num_minos = tetrimino_count(ret);
-	check[0] = nl_check(ret, num_minos);
+	check[0] = nl_check(ret);
 	check[1] = dot_hash_check(ret);
 	ret = rm_nl(ret);
 	check[2] = pre_shape_check(ret);
