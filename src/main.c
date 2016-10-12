@@ -4,26 +4,47 @@
 int		main(int argc, char **argv)
 {
 	char	*ret;
-	argc = 0; // edit this later
-	//argv = NULL; // edit this later
-
 	char	*z;
 
-	//z = (char *)malloc(33);
-	//ft_strcpy(z, "......##.##.....");
-	//controller(z);
+	// ret = input_data(argv[1]);
+
+	z = (char *)malloc(33);
+	ft_strcpy(z, "......##.##.....");
+	solve_entrance(z);
+
+
+	if (!ret)
+		return (0);
+	return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//argv = NULL; // edit this later
+
+//...#...#...#...#
+	
+
+
+
 
 	/*if (argc != 2)*/
 	/*{*/
 		/*ft_putstr("usage: ./fillit source_file");*/
 		/*return (0);*/
 	/*}*/
-	ret = input_data(argv[1]);
-	if (!ret)
-		return (0);
-	//prnt_str2grid(ret);
-	return (0);
-}
-
-
-//...#...#...#...#
