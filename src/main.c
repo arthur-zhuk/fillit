@@ -3,18 +3,18 @@
 
 int		main(int argc, char **argv)
 {
-	char	*ret;
+	// char	*ret;
 	char	*z;
 
 	// ret = input_data(argv[1]);
 
-	z = (char *)malloc(33);
+	z = (char *)malloc(17);
 	ft_strcpy(z, "......##.##.....");
 	solve_entrance(z);
 
 
-	if (!ret)
-		return (0);
+	// if (!ret)
+	// 	return (0);
 	return (0);
 }
 
