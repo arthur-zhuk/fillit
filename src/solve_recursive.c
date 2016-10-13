@@ -9,19 +9,21 @@ int		ft_make_map(char **piece_list)
 
 
 	size = 4;
-	// while (size < 100)
-	// {
+	while (size < 100)
+	{
 		grid = h_make_grid(size);
 		printf("ft_make_map\n");
 		print_mino(grid);
 		if (ft_recursive(piece_list, grid))
 			return (1);
-	// 	else
-	// 	{
-	// 		free(grid);
-	// 		size++;
-	// 	}
-	// }
+		else
+		{
+			printf("grid fail");
+			free(grid);
+			size++;
+		}
+		size++;
+	}
 
 	return (0);
 }
@@ -33,9 +35,7 @@ int		ft_recursive(char **piece_list, char **grid)
 	i = 0;
 	while (piece_list[i] != '\0')
 	{
-
 		if (solve_entrance(grid, piece_list, i))
-
 		{
 			if (ft_recursive(ft_new_piece_list(piece_list, i), grid))
 			{

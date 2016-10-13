@@ -11,6 +11,7 @@ typedef struct 		s_coord
 {
 	int 			y;
 	int				x;
+	int				size;
 }					t_coord;
 
 char	*read_data(char *av);
@@ -88,8 +89,5 @@ void	ft_unplace_piece(char **grid, char *piece);
 void	print_mino(char **mino);
 
 
-
-int		line_cnt(char *av);
-int		line_check(char *av);
 
 #endif

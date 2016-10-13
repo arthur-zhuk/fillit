@@ -42,6 +42,7 @@ int		solve_entrance(char **grid, char **z, int index)
 	gc = (t_coord *)malloc(sizeof(t_coord));
 	gc -> y = 0;
 	gc -> x = 0;
+	gc -> size = ft_strlen_dub(grid);
 	
 	mino = make_mino(z[index]);
 	printf("\nstart mino index: %d\n", index);
@@ -50,6 +51,7 @@ int		solve_entrance(char **grid, char **z, int index)
 	mc = (t_coord *)malloc(sizeof(t_coord));
 	mc -> y = min_y_point(mino);
 	mc -> x = min_x_point(mino);
+	mc -> size = 4;
 
 	printf("min_y: %d\n", mc ->y);
 	printf("min_x: %d\n", mc ->x);
@@ -58,10 +60,18 @@ int		solve_entrance(char **grid, char **z, int index)
 
 
 	// start the compare function
-	s_compare_control(mino, grid, mc, gc);
-	print_mino(grid);
 
-	return (1);
+	if (s_compare_control(mino, grid, mc, gc))
+	{
+		print_mino(grid);
+		return (1);
+	}
+	else
+	{
+		print_mino(grid);
+		return (0);		
+	}
+
 }
 
 int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
@@ -99,12 +109,10 @@ int		s_place_piece(char **m, char **g, t_coord *mc, t_coord *gc)
 	int		k;
 	// counts number of #'s that werre compared.  If at the end the counter
 	// does not equal 4, that means that one of the mino hash's was not on the grid
-	int		size;
 
-	size = 5;
 	i = 0;
 	k = 0;
-	while (mc -> y + k < 4 && gc -> y + k < size)
+	while (mc -> y + k < mc -> size && gc -> y + k < gc -> size)
 	{
 		while (m[mc -> y + k][mc -> x + i] != '\0' && g[gc -> y + k][gc -> x + i] != '\0')
 		{
@@ -129,13 +137,11 @@ int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc)
 	int		k;
 	// counts number of #'s that werre compared.  If at the end the counter
 	// does not equal 4, that means that one of the mino hash's was not on the grid
-	int		size;
-
-	size = 5;
+	
 	i = 0;
 	j = 0;
 	k = 0;
-	while (mc -> y + k < 4 && gc -> y + k < size)
+	while (mc -> y + k < mc -> size && gc -> y + k < gc -> size)
 	{
 		while (m[mc -> y + k][mc -> x + i] != '\0' && g[gc -> y + k][gc -> x + i] != '\0')
 		{
