@@ -4,13 +4,24 @@
 int		main(int argc, char **argv)
 {
 	// char	*ret;
-	char	*z;
+	char	**z;
+	int		i;
 
 	// ret = input_data(argv[1]);
 
-	z = (char *)malloc(17);
-	ft_strcpy(z, "......##.##.....");
-	solve_entrance(z);
+	z = (char **)malloc(sizeof(char *) * 5);
+	i = 0;
+	while (i < 4)
+	{
+		z[i] = (char *)malloc(17);
+		printf("%s\n" , argv[i + 1]);
+		z[i] = argv[i + 1];
+		i++;
+	}
+	z[i] = 0;
+	printf("here\n");
+	ft_puttab(z);
+	ft_make_map(z);
 
 
 	// if (!ret)
@@ -20,15 +31,7 @@ int		main(int argc, char **argv)
 
 
 
-
-
-
-
-
-
-
-
-
+// ".....AAA...A...." ".B...BB...B....." "....CCC..C......" "DDDD............"
 
 
 
