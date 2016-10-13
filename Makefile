@@ -10,7 +10,8 @@ SRC = 	input_result_test.c 	\
 		src/read_data.c 		\
 		src/solve.c				\
 		src/solve_head.c		\
-		src/solve_helpers.c		
+		src/solve_helpers.c		\
+		src/print_helpers.c		\
 
 OBJ = $(SRC:.c=.o)
 INCLUDES = -I include/fillit.h include/libft.h include/solve.h
