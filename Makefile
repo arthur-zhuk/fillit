@@ -11,6 +11,7 @@ SRC = 	input_result_test.c 	\
 		src/solve.c				\
 		src/solve_head.c		\
 		src/solve_helpers.c		\
+		src/solve_recursive.c	\
 		src/print_helpers.c		\
 
 OBJ = $(SRC:.c=.o)

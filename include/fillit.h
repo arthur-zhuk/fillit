@@ -51,12 +51,13 @@ char	*ft_strdup_n(const char *src, int n);
 ** 2d array solve
 */
 
+int		ft_make_map(char **piece_list);
 char	**make_two_d(int x, int y, char *data);
-char	*solve_entrance(char *z);
+int		solve_entrance(char **grid, char **z, int index);
 int		open_space(char **grid, int start, int size);
 int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc);
 int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc);
-char	**h_make_grid(int size);
+int		s_place_piece(char **m, char **g, t_coord *mc, t_coord *gc);
 
 
 /*
@@ -66,6 +67,7 @@ char	**h_make_grid(int size);
 int		min_x_point(char **mino);
 int		min_y_point(char **mino);
 int		h_new_line(t_coord *coords, int size);
+char	**h_make_grid(int size);
 char	**make_mino(char *z);
 int		h_iterate_grid_coord(t_coord *gc, int size);
 

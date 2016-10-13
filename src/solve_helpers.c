@@ -15,7 +15,7 @@ int		min_x_point(char **mino)
 		j = 0;
 		while (mino[i][j])
 		{
-			if (mino[i][j] == '#' && j < x)
+			if (mino[i][j] != '.' && j < x)
 				x = j;
 			j++;
 		}
@@ -38,7 +38,7 @@ int		min_y_point(char **mino)
 		j = 0;
 		while (mino[i][j])
 		{
-			if (mino[i][j] == '#' && i < y)
+			if (mino[i][j] != '.' && i < y)
 				y = i;
 			j++;
 		}
@@ -83,7 +83,7 @@ char	**h_make_grid(int size)
 
 	i = 0;
 	j = 0;
-	grid = (char **)malloc(sizeof(char *) * (size * size + 1));
+	grid = (char **)malloc(sizeof(char *) * (size + 1));
 	while (i < size)
 	{
 		grid[i] = (char *)malloc(sizeof(char) * (size + 1));
