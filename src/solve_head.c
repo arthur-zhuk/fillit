@@ -112,8 +112,6 @@ int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc)
 				j++;
 			i++;
 		}
-		if(!(h_new_line(mc, 4)) || !(h_new_line(gc, size)))
-			break;
 		i = 0;
 		k++;
 		// printf("--new line--\n");
