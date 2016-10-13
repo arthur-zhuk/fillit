@@ -24,7 +24,7 @@
 **
 */
 
-int	solve_entrance(char **grid, char **z, int index)
+int		solve_entrance(char **grid, char **z, int index)
 {
 	char	**mino;
 	t_coord	*gc;

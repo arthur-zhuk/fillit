@@ -7,6 +7,7 @@ int		ft_make_map(char **piece_list)
 	char	**grid;
 	int		size;
 
+
 	size = 4;
 	// while (size < 100)
 	// {
@@ -21,6 +22,7 @@ int		ft_make_map(char **piece_list)
 	// 		size++;
 	// 	}
 	// }
+
 	return (0);
 }
 
@@ -31,7 +33,9 @@ int		ft_recursive(char **piece_list, char **grid)
 	i = 0;
 	while (piece_list[i] != '\0')
 	{
+
 		if (solve_entrance(grid, piece_list, i))
+
 		{
 			if (ft_recursive(ft_new_piece_list(piece_list, i), grid))
 			{
@@ -100,6 +104,7 @@ char	**ft_new_piece_list(char **piece_list, int piece_index)
 	new_piece = (char **)malloc(sizeof(char *) * (len - 1));
 	while (piece_list[i] != '\0')
 	{
+
 		new_piece[j] = (char *)malloc(sizeof(char) * 17);
 		if (i != piece_index)
 		{
