@@ -24,40 +24,43 @@
 **
 */
 
-char	*solve_entrance(char *z)
+int		solve_entrance(char **grid, char **z, int index)
 {
 	char	**mino;
-	char	**grid;
 	t_coord	*gc;
 	t_coord	*mc;
 
-	grid = h_make_grid(5);
-	grid[0][0] = '*';
-	grid[0][2] = '*';
-	grid[0][4] = '*';
+	// grid = h_make_grid(5);
+	// grid[0][0] = '*';
+	// grid[0][2] = '*';
+	// grid[0][4] = '*';
 	// grid[0][1] = '*';
+
 	printf("\nstart grid: \n");
 	print_mino(grid);
 
 	gc = (t_coord *)malloc(sizeof(t_coord));
 	gc -> y = 0;
 	gc -> x = 0;
-
-	mino = make_mino(z);
-	printf("\nstart mino\n");
+	mino = make_mino(z[index]);
+	printf("\nstart mino index: %d\n", index);
 	print_mino(mino);
 
 	mc = (t_coord *)malloc(sizeof(t_coord));
 	mc -> y = min_y_point(mino);
 	mc -> x = min_x_point(mino);
 
+	printf("min_y: %d\n", mc ->y);
+	printf("min_x: %d\n", mc ->x);
+
+
+
+
 	// start the compare function
 	s_compare_control(mino, grid, mc, gc);
-
-
-	print_mino(mino);
 	print_mino(grid);
-	return (0);
+
+	return (1);
 }
 
 int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
@@ -73,7 +76,8 @@ int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
 	{
 			if (s_compare(m, g, mc, gc))
 			{
-				printf("successful placement\n");
+				printf("successful compare\n");
+				s_place_piece(m, g, mc, gc);
 				keep_going = 0;
 			}
 			else
@@ -87,6 +91,36 @@ int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
 
 // Optimization could be gained by adding a stop condition for when the bottom of the mino goes
 // off the bottom of the grid.
+int		s_place_piece(char **m, char **g, t_coord *mc, t_coord *gc)
+{
+	// takes in a mino and coordinates on the map
+	// returns 1 if there is no conflict with that placement of the mino
+	int		i;
+	// int		j;
+	int		k;
+	// counts number of #'s that werre compared.  If at the end the counter
+	// does not equal 4, that means that one of the mino hash's was not on the grid
+	int		size;
+
+	size = 5;
+	i = 0;
+	k = 0;
+	while (mc -> y + k < 4 && gc -> y + k < size)
+	{
+		while (m[mc -> y + k][mc -> x + i] != '\0' && g[gc -> y + k][gc -> x + i] != '\0')
+		{
+			if (m[mc -> y + k][mc -> x + i] != '.')
+			{
+				g[gc -> y + k][gc -> x + i] = m[mc -> y + k][mc -> x + i];
+			}
+			i++;
+		}
+		i = 0;
+		k++;
+	}
+	return (0);
+}
+
 int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc)
 {
 	// takes in a mino and coordinates on the map
@@ -116,8 +150,6 @@ int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc)
 		}
 		i = 0;
 		k++;
-		// printf("--new line--\n");
-		// printf("grid y: %d, x: %d\n\n", gc -> y, gc -> x + i);
 	}
 	if (j == 4)
 	{
