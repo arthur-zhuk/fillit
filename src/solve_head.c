@@ -17,7 +17,7 @@
 ** > haven't gotten to that yet
 **
 ** > how to access the information in a struct pointer:
-**		> mc->x 
+**		> mc->x
 **
 **
 **
@@ -48,6 +48,7 @@ int		solve_entrance(char **grid, char **z, int index)
 	// printf("\nstart mino index: %d\n", index);
 	// print_mino(mino);
 	
+
 	mc = (t_coord *)malloc(sizeof(t_coord));
 	mc -> y = min_y_point(mino);
 	mc -> x = min_x_point(mino);
@@ -106,6 +107,8 @@ int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
 	return (0);
 }
 
+// Optimization could be gained by adding a stop condition for when the bottom of the mino goes
+// off the bottom of the grid.
 int		s_place_piece(char **m, char **g, t_coord *mc, t_coord *gc)
 {
 	// takes in a mino and coordinates on the map
