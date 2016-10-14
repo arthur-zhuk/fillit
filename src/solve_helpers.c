@@ -86,6 +86,7 @@ char	**h_make_grid(int size)
 	grid = (char **)malloc(sizeof(char *) * (size + 1));
 	while (i < size)
 	{
+
 		grid[i] = (char *)malloc(sizeof(char) * (size + 1));
 		j = 0;
 		while (j < size)
@@ -99,6 +100,7 @@ char	**h_make_grid(int size)
 	grid[i] = 0;
 	return (grid);
 }
+
 
 char	**make_mino(char *z)
 {
