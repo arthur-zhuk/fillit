@@ -32,6 +32,7 @@ char	*input_data(char *av)
 		printf("**** shape check\n");
 		return (0);	
 	}
+
 	ret = hash_to_letter(ret);
 	return (ret);
 }
