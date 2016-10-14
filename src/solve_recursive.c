@@ -9,7 +9,7 @@ int		ft_make_map(char **piece_list)
 
 
 	size = 4;
-	while (size < 100)
+	while (size < 10)
 	{
 		grid = h_make_grid(size);
 		printf("ft_make_map\n");
@@ -20,23 +20,38 @@ int		ft_make_map(char **piece_list)
 		{
 			printf("grid fail");
 			free(grid);
-			size++;
 		}
 		size++;
+		printf("size: %d\n", size);
 	}
 
 	return (0);
 }
+
+/*
+** this function 
+** this function returns 0 when the grid size needs to be increased
+**
+**
+*/
 
 int		ft_recursive(char **piece_list, char **grid)
 {	
 	int		i;
 
 	i = 0;
+	if (piece_list[i] == 0)
+		return (1);
 	while (piece_list[i] != '\0')
 	{
+		printf("mino: %s\n", piece_list[i]);
+		printf("grid: \n");
+		print_mino(grid);
+
 		if (solve_entrance(grid, piece_list, i))
 		{
+			printf("place piece SUCCESS\n");
+			print_mino(grid);
 			if (ft_recursive(ft_new_piece_list(piece_list, i), grid))
 			{
 				free(piece_list);
@@ -49,14 +64,19 @@ int		ft_recursive(char **piece_list, char **grid)
 				ft_unplace_piece(grid, piece_list[i]);
 				printf("unplace piece after:\n");
 				print_mino(grid);
-
 			}
 		}
 		else
+		{
+			printf("place piece FAIL\n");
+			printf("return 0 \n");
+			printf("next operation should be unplace piece one level up\n");
+
 			return (0);
+		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 /*
@@ -76,8 +96,10 @@ void	ft_unplace_piece(char **grid, char *piece)
 	k = 0;
 	while (piece[i] == '.')
 		i++;
+	printf("remove letter: %c\n", piece[i]);
 	while (grid[j])
 	{
+		k = 0;
 		while (grid[j][k])
 		{
 			if (grid[j][k] == piece[i])

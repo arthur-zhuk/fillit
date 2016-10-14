@@ -36,8 +36,8 @@ int		solve_entrance(char **grid, char **z, int index)
 	// grid[0][4] = '*';
 	// grid[0][1] = '*';
 
-	printf("\nstart grid: \n");
-	print_mino(grid);
+	// printf("\nstart grid: \n");
+	// print_mino(grid);
 	
 	gc = (t_coord *)malloc(sizeof(t_coord));
 	gc -> y = 0;
@@ -45,16 +45,16 @@ int		solve_entrance(char **grid, char **z, int index)
 	gc -> size = ft_strlen_dub(grid);
 	
 	mino = make_mino(z[index]);
-	printf("\nstart mino index: %d\n", index);
-	print_mino(mino);
+	// printf("\nstart mino index: %d\n", index);
+	// print_mino(mino);
 	
 	mc = (t_coord *)malloc(sizeof(t_coord));
 	mc -> y = min_y_point(mino);
 	mc -> x = min_x_point(mino);
 	mc -> size = 4;
 
-	printf("min_y: %d\n", mc ->y);
-	printf("min_x: %d\n", mc ->x);
+	// printf("min_y: %d\n", mc ->y);
+	// printf("min_x: %d\n", mc ->x);
 
 
 
@@ -63,12 +63,18 @@ int		solve_entrance(char **grid, char **z, int index)
 
 	if (s_compare_control(mino, grid, mc, gc))
 	{
-		print_mino(grid);
+		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+		// printf("s_compare_control SUCCESS\n");
+		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+		// print_mino(grid);
 		return (1);
 	}
 	else
 	{
-		print_mino(grid);
+		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+		// printf("s_compare_control FAIL\n");
+		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+		// print_mino(grid);
 		return (0);		
 	}
 
@@ -87,17 +93,17 @@ int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
 	{
 			if (s_compare(m, g, mc, gc))
 			{
-				printf("successful compare\n");
+				// printf("successful compare\n");
 				s_place_piece(m, g, mc, gc);
-				keep_going = 0;
+				return (1);
 			}
 			else
 			{
-				printf("failed compare\n\n");
+				// printf("failed compare\n\n");
 				keep_going = h_iterate_grid_coord(gc, 5);
 			}
 	}
-	return (1);
+	return (0);
 }
 
 int		s_place_piece(char **m, char **g, t_coord *mc, t_coord *gc)
@@ -145,8 +151,8 @@ int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc)
 	{
 		while (m[mc -> y + k][mc -> x + i] != '\0' && g[gc -> y + k][gc -> x + i] != '\0')
 		{
-			printf("grid [%d, %d] = %c\n", gc -> y + k, gc -> x + i, g[gc -> y + k][gc -> x + i]);
-			printf("mino [%d, %d] = %c\n\n", mc -> y + k, mc -> x + i, m[mc -> y + k][mc -> x + i]);
+			// printf("grid [%d, %d] = %c\n", gc -> y + k, gc -> x + i, g[gc -> y + k][gc -> x + i]);
+			// printf("mino [%d, %d] = %c\n\n", mc -> y + k, mc -> x + i, m[mc -> y + k][mc -> x + i]);
 			if (m[mc -> y + k][mc -> x + i] != '.' && g[gc -> y + k][gc -> x + i] != '.')
 				return (0);
 			if (m[mc -> y + k][mc -> x + i] != '.')
@@ -160,7 +166,7 @@ int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc)
 	{
 		return (1);
 	}
-	printf(">>>> j: %d\n", j);
+	// printf(">>>> j: %d\n", j);
 	return (0);
 }
 

@@ -6,12 +6,15 @@ int		main(int argc, char **argv)
 	// char	*ret;
 	char	**z;
 	int		i;
+	int		num;
+
+	num = 7 + 1;
 
 	// ret = input_data(argv[1]);
 
-	z = (char **)malloc(sizeof(char *) * 5);
+	z = (char **)malloc(sizeof(char *) * num);
 	i = 0;
-	while (i < 4)
+	while (i < num)
 	{
 		z[i] = (char *)malloc(17);
 		printf("%s\n" , argv[i + 1]);
@@ -31,9 +34,7 @@ int		main(int argc, char **argv)
 
 
 
-// ".....AAA...A...." ".B...BB...B....." "....CCC..C......" "DDDD............"
-
-
+// ".....AAA...A...." ".B...BB...B....." "....CCC..C......" "DDDD............" "..........EE..EE" ".....FFF...F...." "......G...G...GG"
 
 
 
