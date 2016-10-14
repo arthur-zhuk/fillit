@@ -21,7 +21,7 @@ char	*input_data(char *av)
 		return (0);
 	ret = rm_nl(ret);
 	if (pre_shape_check(ret))
-		return (0);	
+		return (0);
 	ret = hash_to_letter(ret);
 	return (ret);
 }
