@@ -11,6 +11,7 @@ int		nl_check(char *z)
 	{
 		if ((i - (i / 21)) % 5 == 4 && z[i] != '\n')
 		{
+			// printf("i1: %d\n", i);
 			return (0);
 		}
 		if ((i % 21) == 0 && z[i - 1] != '\n' && i != 0)	
@@ -27,7 +28,8 @@ int		nl_check(char *z)
 			** when looking at the first character in the string, which
 			** satisfies the other 2 conditions.
 			*/
-			// printf("i: %d\n", i);
+			// printf("i2: %d\n", i);
+
 			return (0);
 		}
 		i++;
@@ -88,12 +90,12 @@ int		pre_shape_check(char *z)
 		if (i % 16 == 0)
 		{
 			inpt = ft_strdup_n(&z[i], 15);
-			// printf("inpt: %s, index: %d\n", inpt, find_hash(inpt));
+			printf("inpt: %s, index: %d\n", inpt, find_hash(inpt));
 			ans = shape_check(inpt, find_hash(inpt), 100, 0);
 			// printf("ans: %d\n", ans);
-			if (ans != 4)
-				return (0);
-			ft_bzero(inpt, 16);
+			// if (ans != 4)
+			// 	return (0);
+			// // ft_bzero(inpt, 16);
 			// printf("-------------------------------------------\n");
 		}
 		i++;
