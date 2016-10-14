@@ -13,7 +13,7 @@ echo **Weird piece using acceptable chars
 echo **Not enough chars in piece
 ./a.out test_inputs/test_misingchars
 
-echo **Small Piece with appropriate chars but not 4 in len
+echo **Small Piece with appropriate chars but less than 4 in len
 ./a.out test_inputs/test_smlpiece
 
 echo **Big Piece with Appropriate Chars but 5 in Len
@@ -25,5 +25,8 @@ echo **New line in strange place to break new line checker
 echo **When there is a symbol other than pound or period
 ./a.out test_inputs/test_diffsymb
 
-echo **Kane's OL test
+echo **Kanes OL test
 ./a.out test_inputs/test_OL
+
+echo **Just a square to make sure condition logic doesnt overlook smaller numbers
+./a.out test_inputs/test_square

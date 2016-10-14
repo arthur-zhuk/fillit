@@ -14,7 +14,7 @@ int		nl_check(char *z)
 			// printf("i1: %d\n", i);
 			return (0);
 		}
-		if ((i % 21) == 0 && z[i - 1] != '\n' && i != 0)	
+		if ((i % 21) == 0 && z[i - 1] != '\n' && i != 0)
 		{
 			/*
 			** >  i % 21 :index after line break. This is necessary because the
