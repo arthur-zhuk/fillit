@@ -15,13 +15,23 @@ char	*input_data(char *av)
 		return (0);
 	}
 	num_minos = tetrimino_count(ret);
-	if (nl_check(ret))
+	if (!(nl_check(ret)))
+	{
+		printf("**** nl check\n");
 		return (0);
-	if (dot_hash_check(ret))
+	}
+	if (!(dot_hash_check(ret)))
+	{
+		printf("**** dot hash\n");
 		return (0);
+	}
+
 	ret = rm_nl(ret);
 	if (pre_shape_check(ret))
+	{
+		printf("**** shape check\n");
 		return (0);	
+	}
 	ret = hash_to_letter(ret);
 	return (ret);
 }

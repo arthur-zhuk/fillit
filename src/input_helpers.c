@@ -20,7 +20,7 @@ int		tetrimino_count(char *z)
 	{
 		i++;
 	}
-	printf("i: %d\n", i);
+	// printf("i: %d\n", i);
 	i++;
 
 	if (i % 21 != 0)

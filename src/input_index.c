@@ -47,7 +47,7 @@ int		dot_hash_check(char *z)
 		if ((i - (i / 21)) % 5 != 4 && z[i] != '.' && z[i] != '#'
 			&& (i + 1) % 21 != 0)
 		{
-			// printf("fail index: %d\n", i);
+			printf("fail index: %d\n", i);
 			return (0);
 		}
 		i++;
@@ -90,7 +90,7 @@ int		pre_shape_check(char *z)
 		if (i % 16 == 0)
 		{
 			inpt = ft_strdup_n(&z[i], 15);
-			printf("inpt: %s, index: %d\n", inpt, find_hash(inpt));
+			// printf("inpt: %s, index: %d\n", inpt, find_hash(inpt));
 			ans = shape_check(inpt, find_hash(inpt), 100, 0);
 			// printf("ans: %d\n", ans);
 			// if (ans != 4)
