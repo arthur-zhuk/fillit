@@ -3,28 +3,36 @@
 
 int		main(int argc, char **argv)
 {
-	// char	*ret;
-	char	**z;
-	int		i;
+	char	*ret;
+	// char	**z;
+	// int		i;
 	int		num;
 
 	num = 7 + 1;
 
-	// ret = input_data(argv[1]);
-
-	z = (char **)malloc(sizeof(char *) * num);
-	i = 0;
-	while (i < num)
+	if (argc != 2)
 	{
-		z[i] = (char *)malloc(17);
-		printf("%s\n" , argv[i + 1]);
-		z[i] = argv[i + 1];
-		i++;
+		ft_putstr("usage: ./fillit source_file");
+		return (0);
 	}
-	z[i] = 0;
-	printf("here\n");
-	ft_puttab(z);
-	ft_make_map(z);
+
+	ret = input_data(argv[1]);
+
+	printf("input data: %s\n" , ret);
+
+	// z = (char **)malloc(sizeof(char *) * num);
+	// i = 0;
+	// while (i < num)
+	// {
+	// 	z[i] = (char *)malloc(17);
+	// 	printf("%s\n" , argv[i + 1]);
+	// 	z[i] = argv[i + 1];
+	// 	i++;
+	// }
+	// z[i] = 0;
+	// printf("here\n");
+	// ft_puttab(z);
+	// ft_make_map(z);
 
 
 	// if (!ret)
@@ -48,8 +56,3 @@ int		main(int argc, char **argv)
 
 
 
-	/*if (argc != 2)*/
-	/*{*/
-		/*ft_putstr("usage: ./fillit source_file");*/
-		/*return (0);*/
-	/*}*/

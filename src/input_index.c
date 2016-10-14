@@ -1,6 +1,7 @@
 #include "../include/fillit.h"
 #include "../include/libft.h"
 
+
 int		nl_check(char *z)
 {
 	int		i;
@@ -9,8 +10,11 @@ int		nl_check(char *z)
 	while (z[i] != '\0')
 	{
 		if ((i - (i / 21)) % 5 == 4 && z[i] != '\n')
+		{
 			return (0);
-		if ((i % 21) == 0 && z[i - 1] != '\n' && i != 0)
+		}
+		if ((i % 21) == 0 && z[i - 1] != '\n' && i != 0)	
+		{
 			/*
 			** >  i % 21 :index after line break. This is necessary because the
 			** minos are 21 long, if we were to modulo by another number, then
@@ -23,8 +27,7 @@ int		nl_check(char *z)
 			** when looking at the first character in the string, which
 			** satisfies the other 2 conditions.
 			*/
-		{
-			printf("i: %d\n", i);
+			// printf("i: %d\n", i);
 			return (0);
 		}
 		i++;
@@ -42,7 +45,7 @@ int		dot_hash_check(char *z)
 		if ((i - (i / 21)) % 5 != 4 && z[i] != '.' && z[i] != '#'
 			&& (i + 1) % 21 != 0)
 		{
-			printf("fail index: %d\n", i);
+			// printf("fail index: %d\n", i);
 			return (0);
 		}
 		i++;
@@ -50,7 +53,7 @@ int		dot_hash_check(char *z)
 	return (1);
 }
 
-
+// re malloc because the original malloc is going to be too big.
 char	*rm_nl(char *z)
 {
 	int		i;
@@ -59,7 +62,7 @@ char	*rm_nl(char *z)
 
 	i = 0;
 	j = 0;
-	ret = (char *)malloc(sizeof(char) * ft_strlen(z));
+	ret = (char *)malloc(sizeof(char) * (ft_strlen(z) + 1));
 	while (z[i] != '\0')
 	{
 		if (z[i] != '\n')
@@ -69,6 +72,7 @@ char	*rm_nl(char *z)
 		}
 		i++;
 	}
+	free(z);
 	return (ret);
 }
 
@@ -84,7 +88,7 @@ int		pre_shape_check(char *z)
 		if (i % 16 == 0)
 		{
 			inpt = ft_strdup_n(&z[i], 15);
-			// printf("inpt: %s, index: %d, ", inpt, find_hash(inpt));
+			// printf("inpt: %s, index: %d\n", inpt, find_hash(inpt));
 			ans = shape_check(inpt, find_hash(inpt), 100, 0);
 			// printf("ans: %d\n", ans);
 			if (ans != 4)

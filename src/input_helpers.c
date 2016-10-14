@@ -6,7 +6,7 @@ int		find_hash(char *z)
 	int		i;
 
 	i = 0;
-	while (z[i] != '#')
+	while ((z[i] != '#') && (z[i] != '\0'))
 		i++;
 	return (i);
 }

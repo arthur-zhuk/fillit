@@ -20,10 +20,10 @@ int		check_grid_lines(char *input)
 
 		if ((input[i] == '\n' && input[i + 1] == '\n') || (input[i + 1] == '\0'))
 		{
-			printf("new_lines: %d\n", new_lines);
+			// printf("new_lines: %d\n", new_lines);
 			if (new_lines != 4)
 				return (0);
-			printf("~~~~~~~~~~~~~~~new grid~~~~~~~~~~~~~~\n");
+			// printf("~~~~~~~~~~~~~~~new grid~~~~~~~~~~~~~~\n");
 			new_lines = 0;
 			i++;
 		}
