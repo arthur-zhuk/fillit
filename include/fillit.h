@@ -23,7 +23,6 @@ int		tetrimino_count(char *z);
 int		nl_check(char *z);
 void	error_check(void);
 int		shape_check(char *z, int indx, int prev, int ans);
-char	*rm_nl(char *s);
 char	*ft_strdup_n(const char *src, int n);
 int		find_hash(char *z);
 int		pre_shape_check(char *z);
@@ -46,7 +45,19 @@ void	ft_putstr_sqr(char *str, int w);
 int		h_min(char *mino);
 char	*ft_strdup_n(const char *src, int n);
 
+/*
+** input index
+*/
 
+char	*rm_nl(char *z, int num_mino);
+
+
+
+/*
+** input helpers
+*/
+
+int is_square(char *z, int indx);
 
 /*
 ** 2d array solve

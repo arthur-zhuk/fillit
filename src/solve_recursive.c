@@ -13,8 +13,6 @@ int		ft_make_map(char **piece_list)
 	while (size < 10)
 	{
 		grid = h_make_grid(size);
-		printf("ft_make_map\n");
-		print_mino(grid);
 		if (ft_recursive(piece_list, grid))
 			return (1);
 		else
@@ -31,7 +29,6 @@ int		ft_make_map(char **piece_list)
 
 
 /*
-** this function 
 ** this function returns 0 when the grid size needs to be increased
 **
 **
@@ -54,13 +51,15 @@ int		ft_recursive(char **piece_list, char **grid)
 		return (1);
 	while (piece_list[i] != '\0')
 	{
-		printf("mino: %s\n", piece_list[i]);
+		printf("mino: \n");
+		print_mino(make_mino(piece_list[i]));
 		printf("grid: \n");
 		print_mino(grid);
 
 		if (solve_entrance(grid, piece_list, i))
 		{
 			printf("place piece SUCCESS\n");
+			// printf("%s\n", grid[0]);
 			print_mino(grid);
 			if (ft_recursive(ft_new_piece_list(piece_list, i), grid))
 			{
@@ -123,6 +122,7 @@ void	ft_unplace_piece(char **grid, char *piece)
 
 char	**ft_new_piece_list(char **piece_list, int piece_index)
 {
+	printf("ft_new_piece_list: entrance\n");
 	char	**new_piece;
 	int		len;
 	int		i;
@@ -136,7 +136,6 @@ char	**ft_new_piece_list(char **piece_list, int piece_index)
 	new_piece = (char **)malloc(sizeof(char *) * (len - 1));
 	while (piece_list[i] != '\0')
 	{
-
 		new_piece[j] = (char *)malloc(sizeof(char) * 17);
 		if (i != piece_index)
 		{
@@ -148,6 +147,7 @@ char	**ft_new_piece_list(char **piece_list, int piece_index)
 			i++;
 	}
 	new_piece[j] = 0;
+	printf("ft_new_piece_list: exit\n\n");
 	return (new_piece);
 }
 
@@ -155,6 +155,8 @@ char	**ft_new_piece_list(char **piece_list, int piece_index)
 
 size_t	ft_strlen_dub(char **str)
 {
+	printf("ft_strlen_dub: entrance\n");
+
 	size_t	i;
 
 	i = 0;
@@ -162,6 +164,7 @@ size_t	ft_strlen_dub(char **str)
 	{
 		i++;
 	}
+	printf("ft_strlen_dub: exit\n\n");
 	return (i);
 }
 

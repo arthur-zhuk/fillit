@@ -47,7 +47,7 @@ int		dot_hash_check(char *z)
 		if ((i - (i / 21)) % 5 != 4 && z[i] != '.' && z[i] != '#'
 			&& (i + 1) % 21 != 0)
 		{
-			printf("fail index: %d\n", i);
+			// printf("fail index: %d\n", i);
 			return (0);
 		}
 		i++;
@@ -56,7 +56,7 @@ int		dot_hash_check(char *z)
 }
 
 // re malloc because the original malloc is going to be too big.
-char	*rm_nl(char *z)
+char	*rm_nl(char *z, int num_mino)
 {
 	int		i;
 	int		j;
@@ -64,7 +64,7 @@ char	*rm_nl(char *z)
 
 	i = 0;
 	j = 0;
-	ret = (char *)malloc(sizeof(char) * (ft_strlen(z) + 1));
+	ret = (char *)malloc(sizeof(char) * (num_mino * 16 + 1));
 	while (z[i] != '\0')
 	{
 		if (z[i] != '\n')
@@ -74,6 +74,9 @@ char	*rm_nl(char *z)
 		}
 		i++;
 	}
+	ret[j] = '\0';
+	// ft_putstr(ret);
+	// ft_putstr("\n");
 	free(z);
 	return (ret);
 }
@@ -83,19 +86,23 @@ int		pre_shape_check(char *z)
 	char	*inpt;
 	int		i;
 	int		ans;
+	
 	i = 0;
-
+	// printf("z[32]: %c\n", z[32]);
 	while (z[i] != '\0')
 	{
 		if (i % 16 == 0)
 		{
-			inpt = ft_strdup_n(&z[i], 15);
+			// printf("i: %d\n", i);
+			inpt = ft_strdup_n(&z[i], 16);
 			// printf("inpt: %s, index: %d\n", inpt, find_hash(inpt));
 			ans = shape_check(inpt, find_hash(inpt), 100, 0);
 			// printf("ans: %d\n", ans);
-			// if (ans != 4)
-			// 	return (0);
-			// // ft_bzero(inpt, 16);
+			if (ans != 4)
+			{
+				return (0);
+			}
+			ft_bzero(inpt, 16);
 			// printf("-------------------------------------------\n");
 		}
 		i++;

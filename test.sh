@@ -25,5 +25,5 @@ echo **New line in strange place to break new line checker
 echo **When there is a symbol other than pound or period
 ./a.out test_inputs/test_diffsymb
 
-echo **Kane's OL test
+echo **Kanes OL test
 ./a.out test_inputs/test_OL

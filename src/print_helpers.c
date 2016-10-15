@@ -24,3 +24,16 @@ void	print_mino(char **mino)
 	printf("\n");
 }
 
+void	prnt_str2grid(char *z)
+{
+	int		i;
+
+	i = 0;
+	while (z[i] != '\0')
+	{
+		printf("%c", z[i]);
+		if (i % 4 == 3)
+		printf("\n");
+		i++;
+	}
+}

@@ -30,6 +30,9 @@ int		tetrimino_count(char *z)
 
 int		shape_check(char *z, int indx, int prev, int ans)
 {
+	if (is_square(z, indx))
+		return (4);
+		
 	// top
 	if (indx - 4 >= 0 && z[indx - 4] == '#' && indx - 4 != prev)
 	{
@@ -66,21 +69,48 @@ int		shape_check(char *z, int indx, int prev, int ans)
 	// printf("%d, %c, %d\n", indx + 4, z[indx + 4], indx + 4 != prev);
 	// printf("^^^^^^^fail-----\n\n\n");
 	return (ans + 1);
+	
 }
 
-void	prnt_str2grid(char *z)
+int is_square(char *z, int indx)
 {
 	int		i;
+	int		j;
 
 	i = 0;
-	while (z[i] != '\0')
+	j = 0;
+	while (z[i])
 	{
-		printf("%c", z[i]);
-		if (i % 4 == 3)
-		printf("\n");
+		if (z[i] == '#')
+			j++;
 		i++;
 	}
+	if (indx % 4 == 3 && indx / 4 == 3)
+		return (0);
+	if (z[indx + 1] == '#' && z[indx + 4] == '#' && z[indx + 5] == '#')
+	{
+		printf("is square\n\n");
+		return (1);
+	}
+	return (0);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 

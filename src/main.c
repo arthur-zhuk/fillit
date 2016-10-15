@@ -20,10 +20,10 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	else
-	{
 		printf("**** Main: tests returned SUCCESS\n\n");
-	}
-	// printf("input data: %s\n" , ret);
+
+
+
 	z = (char **)malloc(sizeof(char *) * tetrimino_count(ret));
 	i = 0;
 	while (ret[i])
@@ -38,7 +38,7 @@ int		main(int argc, char **argv)
 		i++;
 	}
 	z[i] = 0;
-	//ft_puttab(z);
+	ft_make_map(z);
 	return (0);
 }
 

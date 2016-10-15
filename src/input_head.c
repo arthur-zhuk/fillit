@@ -26,8 +26,9 @@ char	*input_data(char *av)
 		return (0);
 	}
 
-	ret = rm_nl(ret);
-	if (pre_shape_check(ret))
+	ret = rm_nl(ret, num_minos);
+	// printf("\n%s\n", ret);
+	if (!(pre_shape_check(ret)))
 	{
 		printf("**** shape check\n");
 		return (0);	
@@ -53,10 +54,15 @@ char	*read_data(char *av)
 		return (0);
 	}
 	ret = read(fd, buf, 10000);
+	if (ret == -1)
+	{
+		error_check();
+		ft_putstr("could not read input\n");
+		return (0);
+	}
 	close(fd);
 	return (buf);
 }
-
 
 void	error_check(void)
 {

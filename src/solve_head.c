@@ -64,10 +64,10 @@ int		solve_entrance(char **grid, char **z, int index)
 
 	if (s_compare_control(mino, grid, mc, gc))
 	{
-		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-		// printf("s_compare_control SUCCESS\n");
-		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-		// print_mino(grid);
+		printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+		printf("piece place SUCCESS\n");
+		printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+		print_mino(grid);
 		return (1);
 	}
 	else
@@ -94,7 +94,7 @@ int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
 	{
 			if (s_compare(m, g, mc, gc))
 			{
-				// printf("successful compare\n");
+				printf("successful compare\n");
 				s_place_piece(m, g, mc, gc);
 				return (1);
 			}
