@@ -8,14 +8,14 @@ char	**input_data(char *av)
 	int		num_minos;
 
 	ret = read_data(av);
-	printf("%s\n", ret);
+	// printf("%s\n", ret);
 	if (ret == 0)
 	{
 		free(ret);
 		return (0);
 	}
 	num_minos = tetrimino_count(ret);
-	printf("num_minos = %d\n", num_minos);
+	// printf("num_minos = %d\n", num_minos);
 	if (!(nl_check(ret)))
 		graceful_exit(ret);
 	if (!(dot_hash_check(ret)))

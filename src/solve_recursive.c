@@ -14,7 +14,10 @@ int		ft_make_map(char **piece_list)
 	{
 		grid = h_make_grid(size);
 		if (ft_recursive(piece_list, grid))
+		{
+			print_mino(grid);
 			return (1);
+		}
 		else
 		{
 		//	printf("grid fail");
@@ -55,9 +58,11 @@ int		ft_recursive(char **piece_list, char **grid)
 		{
 			// printf("place piece SUCCESS\n");
 			// print_mino(grid);
+			print_mino(grid);
+				printf("----------\n");
 			if (ft_recursive(ft_new_piece_list(piece_list, i), grid))
 			{
-				// print_mino(grid);
+				
 				free(piece_list);
 				return (1);
 			}

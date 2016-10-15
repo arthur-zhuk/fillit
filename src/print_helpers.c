@@ -1,8 +1,5 @@
 #include "../include/libft.h"
 #include "../include/fillit.h"
-#include <stdio.h>
-
-
 
 void	print_mino(char **mino)
 {
@@ -21,7 +18,7 @@ void	print_mino(char **mino)
 		printf("\n");
 		i++;
 	}
-	printf("\n");
+	//printf("\n");
 }
 
 void	prnt_str_to_grid(char *z)
