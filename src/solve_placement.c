@@ -65,9 +65,9 @@ int		solve_entrance(char **grid, char **z, int index)
 		// printf("s_compare_control SUCCESS\n");
 		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 		// print_mino(grid);
-		free(gc);
-		free(mc);
-		free(mino);
+		// free(gc);
+		// free(mc);
+		// free(mino);
 		return (1);
 	}
 	else
@@ -76,9 +76,9 @@ int		solve_entrance(char **grid, char **z, int index)
 		// printf("s_compare_control FAIL\n");
 		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 		// print_mino(grid);
-		free(gc);
-		free(mc);
-		free(mino);
+		// free(gc);
+		// free(mc);
+		// free(mino);
 		return (0);
 	}
 
@@ -103,7 +103,8 @@ int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
 			else
 			{
 				// printf("failed compare\n\n");
-				keep_going = h_iterate_grid_coord(gc, 5);
+				keep_going = h_iterate_grid_coord(gc);
+				printf("%d\n", gc -> size);
 			}
 	}
 	return (0);

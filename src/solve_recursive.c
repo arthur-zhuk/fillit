@@ -9,7 +9,7 @@ int		ft_make_map(char **piece_list)
 	int		size;
 	//print_mino(piece_list);
 
-	size = 2;
+	size = ft_sqrt((ft_strlen_dub(piece_list) * 4));
 	while (1)
 	{
 		grid = h_make_grid(size);
@@ -36,6 +36,7 @@ int		ft_make_map(char **piece_list)
 
 int		ft_recursive(char **piece_list, char **grid)
 {
+	printf("in recurssive\n");
 	int		i;
 
 	i = 0;
@@ -52,9 +53,8 @@ int		ft_recursive(char **piece_list, char **grid)
 
 		if (solve_entrance(grid, piece_list, i))
 		{
-//			printf("place piece SUCCESS\n");
-			// printf("%s\n", grid[0]);
-//			print_mino(grid);
+			printf("place piece SUCCESS\n");
+			print_mino(grid);
 			if (ft_recursive(ft_new_piece_list(piece_list, i), grid))
 			{
 				print_mino(grid);
@@ -63,18 +63,18 @@ int		ft_recursive(char **piece_list, char **grid)
 			}
 			else
 			{
-//				printf("unplace piece before:\n");
-//				print_mino(grid);
+				// printf("unplace piece before:\n");
+				// print_mino(grid);
 				ft_unplace_piece(grid, piece_list[i]);
-//				printf("unplace piece after:\n");
-//				print_mino(grid);
+				printf("unplace piece after:\n");
+				print_mino(grid);
 			}
 		}
 		else
 		{
-//			printf("place piece fail\n");
-//			printf("return 0 \n");
-//			printf("next operation should be unplace piece one level up\n");
+			printf("place piece fail\n");
+			printf("return 0 \n");
+			printf("next operation should be unplace piece one level up\n");
 
 			return (0);
 		}
@@ -100,9 +100,10 @@ void	ft_unplace_piece(char **grid, char *piece)
 	k = 0;
 	while (piece[i] == '.')
 		i++;
-//	printf("remove letter: %c\n", piece[i]);
+	printf("remove letter: %c\n", piece[i]);
 	while (grid[j])
 	{
+		printf("%s\n", grid[j]);
 		k = 0;
 		while (grid[j][k])
 		{
@@ -116,7 +117,8 @@ void	ft_unplace_piece(char **grid, char *piece)
 
 char	**ft_new_piece_list(char **piece_list, int piece_index)
 {
-	//printf("ft_new_piece_list: entrance\n");
+	printf("ft_new_piece_list: entrance.  index: %d\n", piece_index);
+	print_mino(piece_list);
 	char	**new_piece;
 	int		len;
 	int		i;
@@ -125,16 +127,26 @@ char	**ft_new_piece_list(char **piece_list, int piece_index)
 	j = 0;
 	i = 0;
 	len = ft_strlen_dub(piece_list);
+	printf("after len\n");
 	// -1 in the malloc to account for the piece that we are going to
 	// skip over in te new string.
-	new_piece = (char **)malloc(sizeof(char *) * (len - 1));
-	while (piece_list[i] != '\0')
+	new_piece = (char **)malloc(sizeof(char *) * (len));
+	printf("after malloc\n");
+	while (piece_list[i])
 	{
-		//printf("piece %s\n" , piece_list[i]);
+		printf("i: %d\n", i);
+		printf("index: %d\n", piece_index);
+		printf("j: %d\n", j);
+		printf("len: %d\n", len);
+		printf("piece %s\n" , piece_list[i]);
 		new_piece[j] = (char *)malloc(sizeof(char) * 17);
+		printf("after inner malloc\n");
 		if (i != piece_index)
 		{
+			printf("before assigning new piece\n");
 			new_piece[j] = ft_strdup(piece_list[i]);
+			printf("after assiging new piece\n");
+			printf("new piece %s\n" , new_piece[j]);
 			i++;
 			j++;
 		}
@@ -146,9 +158,9 @@ char	**ft_new_piece_list(char **piece_list, int piece_index)
 	return (new_piece);
 }
 
-size_t	ft_strlen_dub(char **str)
+int		ft_strlen_dub(char **str)
 {
-	size_t	i;
+	int		i;
 
 	i = 0;
 	while (str[i])

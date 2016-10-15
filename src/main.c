@@ -18,7 +18,7 @@ int		main(int argc, char **argv)
 	else
 		printf("**** Main: tests returned SUCCESS\n\n");
 
-	printf("strlen dub: %lu\n", ft_strlen_dub(ret));
+	printf("strlen dub: %d\n", ft_strlen_dub(ret));
 	print_mino(ret);
 	ft_make_map(ret);
 	return (0);

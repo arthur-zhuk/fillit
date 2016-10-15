@@ -46,7 +46,7 @@ int		ft_make_map(char **piece_list);
 int		ft_recursive(char **piece_list, char **grid);
 void	ft_unplace_piece(char **grid, char *piece);
 char	**ft_new_piece_list(char **piece_list, int piece_index);
-size_t	ft_strlen_dub(char **str);
+int		ft_strlen_dub(char **str);
 
 /*
 ** Solve Placement
@@ -72,8 +72,9 @@ char	**make_mino(char *z);
 ** Solve Helpers Two
 */
 
-int		h_iterate_grid_coord(t_coord *gc, int size);
+int		h_iterate_grid_coord(t_coord *coords);
 char	*ft_strdup_n(const char *src, int n);
+int		ft_sqrt(int nb);
 
 /*
 ** Print helpers

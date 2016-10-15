@@ -1,6 +1,6 @@
 NAME = fillit
 
-FLAG = -Wall -Werror -Wextra
+FLAG = -Wall -Werror -Wextra #-fsanitize=address -ggdb
 
 SRC = 	src/input_head.c 		\
 		src/input_checks.c 		\
@@ -21,7 +21,7 @@ LFLAGS = -L. -lft
 all: $(NAME)
 
 $(NAME):
-	gcc $(SRC) $(INCLUDES) $(LFLAGS)
+	gcc $(FLAG) $(SRC) $(INCLUDES) $(LFLAGS)
 
 clean:
 	/bin/rm -f $(OBJ)

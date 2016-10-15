@@ -1,14 +1,15 @@
 #include "../include/libft.h"
 #include "../include/fillit.h"
 
-int		h_iterate_grid_coord(t_coord *coords, int size)
+int		h_iterate_grid_coord(t_coord *coords)
 {
-	if (coords -> x < size - 1)
+	if (coords -> x < coords -> size - 1)
 	{
 		coords -> x++;
 		return (1);
 	}
-	else if (coords -> x == size - 1 && coords -> y != size - 1)
+	else if (coords -> x == coords -> size - 1 
+		&& coords -> y != coords -> size - 1)
 	{
 		coords -> x = 0;
 		coords -> y++;
@@ -33,4 +34,24 @@ char	*ft_strdup_n(const char *src, int n)
 	}
 	str[i] = '\0';
 	return (str);
+}
+
+int		ft_sqrt(int nb)
+{
+	int i;
+
+	i = 0;
+	while (i * i != nb)
+	{
+		i++;
+		if (i * i == nb)
+		{
+			return (i);
+		}
+		if (i * i > nb)
+		{
+			return (i);
+		}
+	}
+	return (0);
 }
