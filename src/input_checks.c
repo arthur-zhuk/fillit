@@ -4,6 +4,7 @@
 
 int		nl_check(char *z)
 {
+	printf("in nl_check\n");
 	int		i;
 
 	i = 0;
@@ -11,7 +12,7 @@ int		nl_check(char *z)
 	{
 		if ((i - (i / 21)) % 5 == 4 && z[i] != '\n')
 		{
-			// printf("i1: %d\n", i);
+			printf("i1: %d\n", i);
 			return (0);
 		}
 		if (i != 0)
@@ -30,7 +31,8 @@ int		nl_check(char *z)
 				** when looking at the first character in the string, which
 				** satisfies the other 2 conditions.
 				*/
-				// printf("i2: %d\n", i);
+				printf("i2: %d\n", i);
+				printf("z[i] = %c\n", z[i]);
 				return (0);
 			}
 		}
@@ -66,6 +68,8 @@ char	*rm_nl(char *z, int num_mino)
 
 	i = 0;
 	j = 0;
+	printf("num_mino = %d\n", num_mino);
+	prnt_str_to_grid(z);
 	ret = (char *)malloc(sizeof(char) * (num_mino * 16 + 1));
 	while (z[i] != '\0')
 	{

@@ -82,5 +82,6 @@ int		ft_sqrt(int nb);
 */
 
 void	print_mino(char **mino);
+void	prnt_str_to_grid(char *z);
 
 #endif
