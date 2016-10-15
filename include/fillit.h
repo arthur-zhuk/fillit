@@ -15,7 +15,6 @@ typedef struct 		s_coord
 }					t_coord;
 
 char	*read_data(char *av);
-char	*input_data(char *av);
 int		check_grid_lines(char *input);
 int		last_char_nl(char *input);
 int		symbol_check(char *x);
@@ -44,6 +43,13 @@ char	*up_left(char *z);
 void	ft_putstr_sqr(char *str, int w);
 int		h_min(char *mino);
 char	*ft_strdup_n(const char *src, int n);
+
+/*
+** input index
+*/
+
+char	**input_data(char *av);
+
 
 /*
 ** input index

@@ -3,9 +3,9 @@
 
 int		main(int argc, char **argv)
 {
-	char	*ret;
-	char	**z;
-	int		i;
+	char	**ret;
+	// char	**z;
+	// int		i;
 	int		j;
 
 	j = 0;
@@ -22,23 +22,9 @@ int		main(int argc, char **argv)
 	else
 		printf("**** Main: tests returned SUCCESS\n\n");
 
-
-
-	z = (char **)malloc(sizeof(char *) * tetrimino_count(ret));
-	i = 0;
-	while (ret[i])
-	{
-		if (i % 16 == 0)
-		{
-			z[j] = (char *)malloc(17);
-			ft_strncpy(z[j], &ret[i], 16);
-			// print_mino(make_mino(z[j]));
-			j++;
-		}
-		i++;
-	}
-	z[i] = 0;
-	ft_make_map(z);
+	printf("strlen dub: %lu\n", ft_strlen_dub(ret));
+	print_mino(ret);
+	ft_make_map(ret);
 	return (0);
 }
 

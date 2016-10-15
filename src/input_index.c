@@ -120,7 +120,7 @@ char	*hash_to_letter(char *z)
 	c = 65;
 	while (z[i] != '\0')
 	{
-		if ((i + 1) % 21 == 0 && i != 0)
+		if (i % 16 == 0 && i != 0)
 		{
 			c++;
 		}
@@ -130,4 +130,52 @@ char	*hash_to_letter(char *z)
 	}
 	return (z);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -7,7 +7,7 @@ int		ft_make_map(char **piece_list)
 {
 	char	**grid;
 	int		size;
-
+	print_mino(piece_list);
 
 	size = 4;
 	while (size < 10)
@@ -55,6 +55,8 @@ int		ft_recursive(char **piece_list, char **grid)
 		print_mino(make_mino(piece_list[i]));
 		printf("grid: \n");
 		print_mino(grid);
+		printf("piece_list: \n");
+		print_mino(piece_list);
 
 		if (solve_entrance(grid, piece_list, i))
 		{
@@ -136,6 +138,7 @@ char	**ft_new_piece_list(char **piece_list, int piece_index)
 	new_piece = (char **)malloc(sizeof(char *) * (len - 1));
 	while (piece_list[i] != '\0')
 	{
+		printf("piece %s\n" , piece_list[i]);
 		new_piece[j] = (char *)malloc(sizeof(char) * 17);
 		if (i != piece_index)
 		{

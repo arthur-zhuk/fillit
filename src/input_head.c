@@ -1,9 +1,10 @@
 #include "../include/libft.h"
 #include "../include/fillit.h"
 
-char	*input_data(char *av)
+char	**input_data(char *av)
 {
 	char	*ret;
+	char	**ret_two_d;
 	int		num_minos;
 	int		i;
 
@@ -27,7 +28,6 @@ char	*input_data(char *av)
 	}
 
 	ret = rm_nl(ret, num_minos);
-	// printf("\n%s\n", ret);
 	if (!(pre_shape_check(ret)))
 	{
 		printf("**** shape check\n");
@@ -35,7 +35,8 @@ char	*input_data(char *av)
 	}
 
 	ret = hash_to_letter(ret);
-	return (ret);
+	ret_two_d = make_two_d(num_minos, 16, ret);
+	return (ret_two_d);
 }
 
 
