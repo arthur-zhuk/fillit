@@ -104,7 +104,7 @@ int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
 			{
 				// printf("failed compare\n\n");
 				keep_going = h_iterate_grid_coord(gc);
-				printf("%d\n", gc -> size);
+				// printf("%d\n", gc -> size);
 			}
 	}
 	return (0);

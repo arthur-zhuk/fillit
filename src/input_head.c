@@ -8,12 +8,14 @@ char	**input_data(char *av)
 	int		num_minos;
 
 	ret = read_data(av);
+	printf("%s\n", ret);
 	if (ret == 0)
 	{
 		free(ret);
 		return (0);
 	}
 	num_minos = tetrimino_count(ret);
+	printf("num_minos = %d\n", num_minos);
 	if (!(nl_check(ret)))
 	{
 		printf("**** nl check\n");
@@ -25,7 +27,7 @@ char	**input_data(char *av)
 		return (0);
 	}
 
-	ret = rm_nl(ret, num_minos);
+	ret= rm_nl(ret, num_minos);
 	if (!(pre_shape_check(ret)))
 	{
 		printf("**** shape check\n");
@@ -57,6 +59,7 @@ char	*read_data(char *av)
 		ft_putstr("could not read input\n");
 		return (0);
 	}
+	buf[ret] = '\0';
 	close(fd);
 	return (buf);
 }

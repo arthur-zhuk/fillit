@@ -1,6 +1,6 @@
 NAME = fillit
 
-FLAG = -Wall -Werror -Wextra #-fsanitize=address -ggdb
+FLAG = -Wall -Werror -Wextra -fsanitize=address -ggdb
 
 SRC = 	src/input_head.c 		\
 		src/input_checks.c 		\

@@ -24,7 +24,7 @@ void	print_mino(char **mino)
 	printf("\n");
 }
 
-void	prnt_str2grid(char *z)
+void	prnt_str_to_grid(char *z)
 {
 	int		i;
 
