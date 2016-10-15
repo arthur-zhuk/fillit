@@ -1,27 +1,29 @@
 NAME = fillit
 
-FLAG = -Wall -Werror -Wextra -fsanitize=address -ggdb
+FLAG = -Wall -Werror -Wextra #-fsanitize=address -ggdb
+LFLAGS = -L. -lft
 
-SRC = 	src/input_head.c 		\
-		src/input_checks.c 		\
-		src/input_helpers.c 	\
-		src/main.c 				\
-		src/solve_recursive.c	\
-		src/solve_helpers.c		\
-		src/solve_helpers_two.c \
-		src/solve_placement.c 	\
-		src/print_helpers.c		\
+SRC = 	input_head.c 		\
+		input_checks.c 		\
+		input_helpers.c 	\
+		main.c 				\
+		solve_recursive.c	\
+		solve_helpers.c		\
+		solve_helpers_two.c \
+		solve_placement.c 	\
+		print_helpers.c		\
 
 OBJ = $(SRC:.c=.o)
-INCLUDES = -I include/fillit.h include/libft.h
-LFLAGS = -L. -lft
+SRCDIR = src/
+INCLUDE = include/
 
 .PHONY: clean fclean re
 
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAG) $(SRC) $(INCLUDES) $(LFLAGS)
+	gcc -c $(FLAG) $(addprefix $(SRCDIR),$(SRC)) -I $(INCLUDE)
+	gcc -o $(NAME) $(OBJ) $(LFLAGS) 
 
 clean:
 	/bin/rm -f $(OBJ)
