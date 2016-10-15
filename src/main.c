@@ -28,19 +28,3 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-
-
-// ".....AAA...A...." ".B...BB...B....." "....CCC..C......" "DDDD............" "..........EE..EE" ".....FFF...F...." "......G...G...GG"
-
-
-
-
-	//argv = NULL; // edit this later
-
-//...#...#...#...#
-	
-
-
-
-
-
