@@ -57,9 +57,6 @@ int		solve_entrance(char **grid, char **z, int index)
 	// printf("min_y: %d\n", mc ->y);
 	// printf("min_x: %d\n", mc ->x);
 
-
-
-
 	// start the compare function
 
 	if (s_compare_control(mino, grid, mc, gc))
@@ -68,6 +65,9 @@ int		solve_entrance(char **grid, char **z, int index)
 		// printf("s_compare_control SUCCESS\n");
 		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 		// print_mino(grid);
+		free(gc);
+		free(mc);
+		free(mino);
 		return (1);
 	}
 	else
@@ -76,6 +76,9 @@ int		solve_entrance(char **grid, char **z, int index)
 		// printf("s_compare_control FAIL\n");
 		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 		// print_mino(grid);
+		free(gc);
+		free(mc);
+		free(mino);
 		return (0);
 	}
 

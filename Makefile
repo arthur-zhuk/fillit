@@ -21,7 +21,7 @@ LFLAGS = -L. -lft
 all: $(NAME)
 
 $(NAME):
-	gcc $(SRC) -fsanitize=address $(INCLUDES) $(LFLAGS)
+	gcc $(SRC) $(INCLUDES) $(LFLAGS)
 
 clean:
 	/bin/rm -f $(OBJ)

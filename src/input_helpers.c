@@ -17,9 +17,7 @@ int		tetrimino_count(char *z)
 
 	i = 0;
 	while (z[i] != '\0')
-	{
 		i++;
-	}
 	// printf("i: %d\n", i);
 	i++;
 

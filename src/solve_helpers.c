@@ -47,7 +47,7 @@ int		min_y_point(char **mino)
 	return (y);
 }
 
-char	**make_two_d(int x, int y, char *data)
+char	**make_two_d(int y, int x, char *data)
 {
 	int		i;
 	int		j;
@@ -57,12 +57,12 @@ char	**make_two_d(int x, int y, char *data)
 	i = 0;
 	j = 0;
 	k = 0;
-	grid = (char **)malloc(sizeof(char *) * (x + 1));
-	while (i < x)
+	grid = (char **)malloc(sizeof(char *) * (y + 1));
+	while (i < y)
 	{
-		grid[i] = (char *)malloc(sizeof(char) * (y + 1));
+		grid[i] = (char *)malloc(sizeof(char) * (x + 1));
 		j = 0;
-		while (j < y)
+		while (j < x)
 		{
 			grid[i][j] = data[k];
 			j++;
@@ -72,6 +72,7 @@ char	**make_two_d(int x, int y, char *data)
 		i++;
 	}
 	grid[i] = 0;
+	free(data);
 	return (grid);
 }
 
@@ -129,3 +130,4 @@ char	**make_mino(char *z)
 	mino[i] = 0;
 	return (mino);
 }
+

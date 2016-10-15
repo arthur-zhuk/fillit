@@ -14,23 +14,25 @@ int		nl_check(char *z)
 			// printf("i1: %d\n", i);
 			return (0);
 		}
-		if ((i % 21) == 0 && z[i - 1] != '\n' && i != 0)
+		if (i != 0)
 		{
-			/*
-			** >  i % 21 :index after line break. This is necessary because the
-			** minos are 21 long, if we were to modulo by another number, then
-			** it would be ++1 off each time we itterated.  So we do 21, then
-			** compensate w z[i - 1].  An alternative would be to do
-			**  i % 21 == 20 then we could use z[i].  Don't think one way is
-			** better than the other.
-			** >  z[i - 1] : line break index
-			** >  i != 0 : this ensures that we don't throw "bad result"
-			** when looking at the first character in the string, which
-			** satisfies the other 2 conditions.
-			*/
-			// printf("i2: %d\n", i);
-
-			return (0);
+			if ((i % 21) == 0 && z[i - 1] != '\n')
+			{
+				/*
+				** >  i % 21 :index after line break. This is necessary because the
+				** minos are 21 long, if we were to modulo by another number, then
+				** it would be ++1 off each time we itterated.  So we do 21, then
+				** compensate w z[i - 1].  An alternative would be to do
+				**  i % 21 == 20 then we could use z[i].  Don't think one way is
+				** better than the other.
+				** >  z[i - 1] : line break index
+				** >  i != 0 : this ensures that we don't throw "bad result"
+				** when looking at the first character in the string, which
+				** satisfies the other 2 conditions.
+				*/
+				// printf("i2: %d\n", i);
+				return (0);
+			}
 		}
 		i++;
 	}
@@ -99,9 +101,7 @@ int		pre_shape_check(char *z)
 			ans = shape_check(inpt, find_hash(inpt), 100, 0);
 			// printf("ans: %d\n", ans);
 			if (ans != 4)
-			{
 				return (0);
-			}
 			ft_bzero(inpt, 16);
 			// printf("-------------------------------------------\n");
 		}

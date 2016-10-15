@@ -6,9 +6,7 @@ char	**input_data(char *av)
 	char	*ret;
 	char	**ret_two_d;
 	int		num_minos;
-	int		i;
 
-	i = -1;
 	ret = read_data(av);
 	if (ret == 0)
 	{

@@ -9,8 +9,8 @@ int		ft_make_map(char **piece_list)
 	int		size;
 	//print_mino(piece_list);
 
-	size = 4;
-	while (size < 10)
+	size = 2;
+	while (1)
 	{
 		grid = h_make_grid(size);
 		if (ft_recursive(piece_list, grid))

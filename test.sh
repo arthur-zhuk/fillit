@@ -1,5 +1,5 @@
 echo **Normal
-./a.out test_inputs/test_perfect
+./a.out test_inputs/test_valid1
 
 echo **Double New Line
 ./a.out test_inputs/test_dblnline
