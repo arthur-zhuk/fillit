@@ -4,11 +4,7 @@
 int		main(int argc, char **argv)
 {
 	char	**ret;
-	// char	**z;
-	// int		i;
-	int		j;
 
-	j = 0;
 	if (argc != 2)
 	{
 		ft_putstr("usage: ./fillit source_file");

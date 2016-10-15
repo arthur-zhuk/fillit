@@ -47,7 +47,7 @@ int		min_y_point(char **mino)
 	return (y);
 }
 
-char	**make_two_d(int x, int y, char *data)
+char	**make_two_d(int y, int x, char *data)
 {
 	int		i;
 	int		j;
@@ -57,12 +57,12 @@ char	**make_two_d(int x, int y, char *data)
 	i = 0;
 	j = 0;
 	k = 0;
-	grid = (char **)malloc(sizeof(char *) * (x + 1));
-	while (i < x)
+	grid = (char **)malloc(sizeof(char *) * (y + 1));
+	while (i < y)
 	{
-		grid[i] = (char *)malloc(sizeof(char) * (y + 1));
+		grid[i] = (char *)malloc(sizeof(char) * (x + 1));
 		j = 0;
-		while (j < y)
+		while (j < x)
 		{
 			grid[i][j] = data[k];
 			j++;
@@ -72,6 +72,7 @@ char	**make_two_d(int x, int y, char *data)
 		i++;
 	}
 	grid[i] = 0;
+	free(data);
 	return (grid);
 }
 
@@ -130,66 +131,3 @@ char	**make_mino(char *z)
 	return (mino);
 }
 
-
-int		h_iterate_grid_coord(t_coord *coords, int size)
-{
-	if (coords -> x < size - 1)
-	{
-		coords -> x++;
-		return (1);
-	}
-	else if (coords -> x == size - 1 && coords -> y != size - 1)
-	{
-		coords -> x = 0;
-		coords -> y++;
-		return (1);
-	}
-	else
-		return (0);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-int		open_space(char **grid, int start, int size)
-{
-	int		i;
-	int		j;
-
-	if (start == 0)
-	{
-		i = 0; //start / size;
-		j = 0; //start % size;
-	} else
-	{
-			i = 0; //start / size;
-		j = 0; //start % size;
-
-	}
-	while (grid[i])
-	{
-		j = 0;
-		while (grid[i][j])
-		{
-			if (grid[i][j] == '.')
-			{
-				return (size * i + j);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-*/

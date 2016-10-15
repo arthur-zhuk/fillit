@@ -38,16 +38,16 @@ int		solve_entrance(char **grid, char **z, int index)
 
 	// printf("\nstart grid: \n");
 	// print_mino(grid);
-	
+
 	gc = (t_coord *)malloc(sizeof(t_coord));
 	gc -> y = 0;
 	gc -> x = 0;
 	gc -> size = ft_strlen_dub(grid);
-	
+
 	mino = make_mino(z[index]);
 	// printf("\nstart mino index: %d\n", index);
 	// print_mino(mino);
-	
+
 
 	mc = (t_coord *)malloc(sizeof(t_coord));
 	mc -> y = min_y_point(mino);
@@ -57,17 +57,17 @@ int		solve_entrance(char **grid, char **z, int index)
 	// printf("min_y: %d\n", mc ->y);
 	// printf("min_x: %d\n", mc ->x);
 
-
-
-
 	// start the compare function
 
 	if (s_compare_control(mino, grid, mc, gc))
 	{
-		printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-		printf("piece place SUCCESS\n");
-		printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-		print_mino(grid);
+		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+		// printf("s_compare_control SUCCESS\n");
+		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+		// print_mino(grid);
+		free(gc);
+		free(mc);
+		free(mino);
 		return (1);
 	}
 	else
@@ -76,7 +76,10 @@ int		solve_entrance(char **grid, char **z, int index)
 		// printf("s_compare_control FAIL\n");
 		// printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 		// print_mino(grid);
-		return (0);		
+		free(gc);
+		free(mc);
+		free(mino);
+		return (0);
 	}
 
 }
@@ -87,14 +90,13 @@ int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
 	// if this function should return 1 unless the map is full
 	// if the map is full then we need to recurse
 	int		keep_going;
-
 	keep_going = 1;
 
 	while (keep_going)
 	{
 			if (s_compare(m, g, mc, gc))
 			{
-				printf("successful compare\n");
+				// printf("successful compare\n");
 				s_place_piece(m, g, mc, gc);
 				return (1);
 			}
@@ -146,7 +148,7 @@ int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc)
 	int		k;
 	// counts number of #'s that werre compared.  If at the end the counter
 	// does not equal 4, that means that one of the mino hash's was not on the grid
-	
+
 	i = 0;
 	j = 0;
 	k = 0;
@@ -182,48 +184,3 @@ int		h_new_line(t_coord *coords, int size)
 	}
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-int		comp_x(t_coord *a, t_coord *b)
-{
-	if (a -> x == b -> x)
-		return (1);
-	return (0);
-}
-
-
-
-
-
-
-// if (m[mc -> y][mc -> x + i] == '#' && g[gc -> y][gc -> x + i] == '.')
-/*
-	Psudo code - ignore not helpful
-
-	while increment through grid
-		while iterate through rows
-			while
-				compare rows
-
-		if increment = grid_size - 1
-			iterate_line(gid coordinates)
-
-
-	return (0);
-}
-
-*/
-
-

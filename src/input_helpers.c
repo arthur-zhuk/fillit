@@ -17,9 +17,7 @@ int		tetrimino_count(char *z)
 
 	i = 0;
 	while (z[i] != '\0')
-	{
 		i++;
-	}
 	// printf("i: %d\n", i);
 	i++;
 
@@ -32,7 +30,7 @@ int		shape_check(char *z, int indx, int prev, int ans)
 {
 	if (is_square(z, indx))
 		return (4);
-		
+
 	// top
 	if (indx - 4 >= 0 && z[indx - 4] == '#' && indx - 4 != prev)
 	{
@@ -69,7 +67,7 @@ int		shape_check(char *z, int indx, int prev, int ans)
 	// printf("%d, %c, %d\n", indx + 4, z[indx + 4], indx + 4 != prev);
 	// printf("^^^^^^^fail-----\n\n\n");
 	return (ans + 1);
-	
+
 }
 
 int is_square(char *z, int indx)
@@ -94,77 +92,3 @@ int is_square(char *z, int indx)
 	}
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-0  1  2  3
-.  #  .  .
-
-4  5  6  7
-#  #  #  .
-
-8  9  10 11
-.  .  .  .
-
-12 13 14 15
-.  .  .  .
-
-
-
-0  1  2  3
-.  .  .  .
-
-4  5  6  7
-.  .  #  #
-
-8  9  10 11
-.  #  #  .
-
-12 13 14 15
-.  .  .  .
-
-
-
-
-> pass in individual mino string, and coordinates of first hash
-> find first hash
-> function( first hash) : return ( 1 + funtion( next hash))
-
-	> check top.
-		if found #, then recursively call function on that hash
-	> check right
-		if found #, then recursively call function on that hash
-	> check bottom
-		if found #, then recursively call function on that hash
-	> check left
-		if found #, then recursively call function on that hash
-
-	> if none return 0
-
-shape = shape_check("......##.##.....", 6, 100, 0);
-	shape = shape_check(".#..###.........", 1, 100, 0);
-	shape = shape_check(".....###.#......", 5, 100, 0);
-	shape = shape_check("#...#...#...#...", 0, 100, 0);
-	shape = shape_check(".....##...#...#.", 5, 100, 0);
-	int		shape;
-	shape = shape_check("......##..#...#.", 6, 100, 0);
-	printf("shape check: %d", shape);
-
-*/

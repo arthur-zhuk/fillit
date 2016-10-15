@@ -7,33 +7,25 @@ int		ft_make_map(char **piece_list)
 {
 	char	**grid;
 	int		size;
-	print_mino(piece_list);
+	//print_mino(piece_list);
 
-	size = 4;
-	while (size < 10)
+	size = 2;
+	while (1)
 	{
 		grid = h_make_grid(size);
 		if (ft_recursive(piece_list, grid))
 			return (1);
 		else
 		{
-			printf("grid fail");
+		//	printf("grid fail");
 			free(grid);
 		}
 		size++;
-		printf("size: %d\n", size);
+		//printf("size: %d\n", size);
 	}
 
 	return (0);
 }
-
-
-/*
-** this function returns 0 when the grid size needs to be increased
-**
-**
-*/
-
 
 // while there are pieces left to place.
 // if piece fits
@@ -51,37 +43,38 @@ int		ft_recursive(char **piece_list, char **grid)
 		return (1);
 	while (piece_list[i] != '\0')
 	{
-		printf("mino: \n");
-		print_mino(make_mino(piece_list[i]));
-		printf("grid: \n");
-		print_mino(grid);
-		printf("piece_list: \n");
-		print_mino(piece_list);
+//		printf("mino: \n");
+//		print_mino(make_mino(piece_list[i]));
+//		printf("grid: \n");
+//		print_mino(grid);
+//		printf("piece_list: \n");
+//		print_mino(piece_list);
 
 		if (solve_entrance(grid, piece_list, i))
 		{
-			printf("place piece SUCCESS\n");
+//			printf("place piece SUCCESS\n");
 			// printf("%s\n", grid[0]);
-			print_mino(grid);
+//			print_mino(grid);
 			if (ft_recursive(ft_new_piece_list(piece_list, i), grid))
 			{
+				print_mino(grid);
 				free(piece_list);
 				return (1);
 			}
 			else
 			{
-				printf("unplace piece before:\n");
-				print_mino(grid);
+//				printf("unplace piece before:\n");
+//				print_mino(grid);
 				ft_unplace_piece(grid, piece_list[i]);
-				printf("unplace piece after:\n");
-				print_mino(grid);
+//				printf("unplace piece after:\n");
+//				print_mino(grid);
 			}
 		}
 		else
 		{
-			printf("place piece FAIL\n");
-			printf("return 0 \n");
-			printf("next operation should be unplace piece one level up\n");
+//			printf("place piece fail\n");
+//			printf("return 0 \n");
+//			printf("next operation should be unplace piece one level up\n");
 
 			return (0);
 		}
@@ -107,7 +100,7 @@ void	ft_unplace_piece(char **grid, char *piece)
 	k = 0;
 	while (piece[i] == '.')
 		i++;
-	printf("remove letter: %c\n", piece[i]);
+//	printf("remove letter: %c\n", piece[i]);
 	while (grid[j])
 	{
 		k = 0;
@@ -121,10 +114,9 @@ void	ft_unplace_piece(char **grid, char *piece)
 	}
 }
 
-
 char	**ft_new_piece_list(char **piece_list, int piece_index)
 {
-	printf("ft_new_piece_list: entrance\n");
+	//printf("ft_new_piece_list: entrance\n");
 	char	**new_piece;
 	int		len;
 	int		i;
@@ -138,7 +130,7 @@ char	**ft_new_piece_list(char **piece_list, int piece_index)
 	new_piece = (char **)malloc(sizeof(char *) * (len - 1));
 	while (piece_list[i] != '\0')
 	{
-		printf("piece %s\n" , piece_list[i]);
+		//printf("piece %s\n" , piece_list[i]);
 		new_piece[j] = (char *)malloc(sizeof(char) * 17);
 		if (i != piece_index)
 		{
@@ -150,24 +142,17 @@ char	**ft_new_piece_list(char **piece_list, int piece_index)
 			i++;
 	}
 	new_piece[j] = 0;
-	printf("ft_new_piece_list: exit\n\n");
+	//printf("ft_new_piece_list: exit\n\n");
 	return (new_piece);
 }
 
-
-
 size_t	ft_strlen_dub(char **str)
 {
-	printf("ft_strlen_dub: entrance\n");
-
 	size_t	i;
 
 	i = 0;
 	while (str[i])
-	{
 		i++;
-	}
-	printf("ft_strlen_dub: exit\n\n");
 	return (i);
 }
 
