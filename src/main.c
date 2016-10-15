@@ -4,11 +4,7 @@
 int		main(int argc, char **argv)
 {
 	char	**ret;
-	// char	**z;
-	// int		i;
-	int		j;
 
-	j = 0;
 	if (argc != 2)
 	{
 		ft_putstr("usage: ./fillit source_file");
@@ -27,20 +23,3 @@ int		main(int argc, char **argv)
 	ft_make_map(ret);
 	return (0);
 }
-
-
-
-// ".....AAA...A...." ".B...BB...B....." "....CCC..C......" "DDDD............" "..........EE..EE" ".....FFF...F...." "......G...G...GG"
-
-
-
-
-	//argv = NULL; // edit this later
-
-//...#...#...#...#
-	
-
-
-
-
-
