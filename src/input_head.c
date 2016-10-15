@@ -15,28 +15,16 @@ char	**input_data(char *av)
 	}
 	num_minos = tetrimino_count(ret);
 	if (!(nl_check(ret)))
-	{
-		printf("**** nl check\n");
-		return (0);
-	}
+		graceful_exit(ret);
 	if (!(dot_hash_check(ret)))
-	{
-		printf("**** dot hash\n");
-		return (0);
-	}
-
+		graceful_exit(ret);
 	ret = rm_nl(ret, num_minos);
 	if (!(pre_shape_check(ret)))
-	{
-		printf("**** shape check\n");
-		return (0);
-	}
-
+		graceful_exit(ret);
 	ret = hash_to_letter(ret);
 	ret_two_d = make_two_d(num_minos, 16, ret);
 	return (ret_two_d);
 }
-
 
 char	*read_data(char *av)
 {
@@ -59,4 +47,11 @@ char	*read_data(char *av)
 	}
 	close(fd);
 	return (buf);
+}
+
+void	graceful_exit(char *str)
+{
+	ft_putstr("error\n");
+	free(str);
+	exit(0);
 }
