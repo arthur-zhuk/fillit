@@ -18,6 +18,7 @@ typedef struct 		s_coord
 
 char	**input_data(char *av);
 char	*read_data(char *av);
+void	graceful_exit(char *str);
 
 /*
 ** Input Checks
