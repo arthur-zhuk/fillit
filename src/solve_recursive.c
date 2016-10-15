@@ -26,7 +26,6 @@ int		ft_make_map(char **piece_list)
 		size++;
 		//printf("size: %d\n", size);
 	}
-
 	return (0);
 }
 
