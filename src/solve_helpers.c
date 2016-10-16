@@ -130,4 +130,3 @@ char	**make_mino(char *z)
 	mino[i] = 0;
 	return (mino);
 }
-

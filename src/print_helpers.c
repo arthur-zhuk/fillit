@@ -12,10 +12,10 @@ void	print_mino(char **mino)
 		j = 0;
 		while (mino[i][j])
 		{
-			printf("%c", mino[i][j]);
+			ft_putchar(mino[i][j]);
 			j++;
 		}
-		printf("\n");
+		ft_putstr("\n");
 		i++;
 	}
 }
@@ -27,9 +27,9 @@ void	prnt_str_to_grid(char *z)
 	i = 0;
 	while (z[i] != '\0')
 	{
-		printf("%c", z[i]);
+		ft_putchar(z[i]);
 		if (i % 4 == 3)
-		printf("\n");
+		ft_putstr("\n");
 		i++;
 	}
 }

@@ -12,4 +12,3 @@ int		main(int argc, char **argv)
 	ft_make_map(ret);
 	return (0);
 }
-
