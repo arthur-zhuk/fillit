@@ -53,7 +53,7 @@ int		ft_strlen_dub(char **str);
 ** Solve Placement
 */
 
-int		solve_entrance(char **grid, char **z, int index);
+int		solve_entrance(char **grid, char **z, t_coord *gc);
 int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc);
 int		s_place_piece(char **m, char **g, t_coord *mc, t_coord *gc);
 int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc);

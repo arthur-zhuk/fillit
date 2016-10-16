@@ -87,7 +87,7 @@ int is_square(char *z, int indx)
 		return (0);
 	if (z[indx + 1] == '#' && z[indx + 4] == '#' && z[indx + 5] == '#')
 	{
-		printf("is square\n\n");
+		// printf("is square\n\n");
 		return (1);
 	}
 	return (0);

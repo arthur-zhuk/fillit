@@ -24,10 +24,9 @@
 **
 */
 
-int		solve_entrance(char **grid, char **z, int index)
+int		solve_entrance(char **grid, char **z, t_coord *gc)
 {
 	char	**mino;
-	t_coord	*gc;
 	t_coord	*mc;
 
 	// grid = h_make_grid(5);
@@ -39,12 +38,7 @@ int		solve_entrance(char **grid, char **z, int index)
 	// printf("\nstart grid: \n");
 	// print_mino(grid);
 
-	gc = (t_coord *)malloc(sizeof(t_coord));
-	gc -> y = 0;
-	gc -> x = 0;
-	gc -> size = ft_strlen_dub(grid);
-
-	mino = make_mino(z[index]);
+	mino = make_mino(z[0]);
 	// printf("\nstart mino index: %d\n", index);
 	// print_mino(mino);
 
@@ -54,6 +48,10 @@ int		solve_entrance(char **grid, char **z, int index)
 	mc -> x = min_x_point(mino);
 	mc -> size = 4;
 
+	// printf("mc -> y = %d\n", mc -> y);
+	// printf("mc -> x = %d\n", mc -> x);
+	// printf("gc -> y = %d\n", gc -> y);
+	// printf("gc -> x = %d\n", gc -> x);
 	// printf("min_y: %d\n", mc ->y);
 	// printf("min_x: %d\n", mc ->x);
 
@@ -90,8 +88,8 @@ int		s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc)
 	// if this function should return 1 unless the map is full
 	// if the map is full then we need to recurse
 	int		keep_going;
-	keep_going = 1;
 
+	keep_going = 1;
 	while (keep_going)
 	{
 			if (s_compare(m, g, mc, gc))

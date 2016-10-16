@@ -20,7 +20,7 @@ int		ft_make_map(char **piece_list)
 		}
 		else
 		{
-		//	printf("grid fail");
+			printf("grid fail");
 			free(grid);
 		}
 		size++;
@@ -39,27 +39,30 @@ int		ft_make_map(char **piece_list)
 int		ft_recursive(char **piece_list, char **grid)
 {
 	// printf("in recurssive\n");
-	int		i;
+	t_coord		*gc;
 
-	i = 0;
-	if (piece_list[i] == 0)
+	gc = (t_coord *)malloc(sizeof(t_coord));
+	gc -> x = -1;
+	gc -> y = 0;
+	gc -> size = ft_strlen(grid[0]);
+	if (piece_list[0] == 0)
 		return (1);
-	while (piece_list[i] != '\0')
+	while (h_iterate_grid_coord(gc))
 	{
-//		printf("mino: \n");
-//		print_mino(make_mino(piece_list[i]));
-//		printf("grid: \n");
-//		print_mino(grid);
-//		printf("piece_list: \n");
-//		print_mino(piece_list);
+		// printf("mino: \n");
+		// print_mino(make_mino(piece_list[0]));
+		// printf("grid: \n");
+		// print_mino(grid);
+		// printf("piece_list: \n");
+		// print_mino(piece_list);
 
-		if (solve_entrance(grid, piece_list, i))
+		if (solve_entrance(grid, piece_list, gc))
 		{
 			// printf("place piece SUCCESS\n");
 			// print_mino(grid);
 			print_mino(grid);
 				printf("----------\n");
-			if (ft_recursive(ft_new_piece_list(piece_list, i), grid))
+			if (ft_recursive(ft_new_piece_list(piece_list, 0), grid))
 			{
 				
 				free(piece_list);
@@ -69,20 +72,11 @@ int		ft_recursive(char **piece_list, char **grid)
 			{
 				// printf("unplace piece before:\n");
 				// print_mino(grid);
-				ft_unplace_piece(grid, piece_list[i]);
+				ft_unplace_piece(grid, piece_list[0]);
 				// printf("unplace piece after:\n");
 				// print_mino(grid);
 			}
 		}
-		else
-		{
-			// printf("place piece fail\n");
-			// printf("return 0 \n");
-			// printf("next operation should be unplace piece one level up\n");
-
-			return (0);
-		}
-		i++;
 	}
 	return (0);
 }
