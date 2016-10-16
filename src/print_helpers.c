@@ -18,7 +18,6 @@ void	print_mino(char **mino)
 		printf("\n");
 		i++;
 	}
-	//printf("\n");
 }
 
 void	prnt_str_to_grid(char *z)
