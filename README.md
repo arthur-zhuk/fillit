@@ -18,11 +18,14 @@ fit into involves implementing a backtracking algorithm. The backtracking
 algorithm traverses the map grid using the first empty '.' that correlates
 with a tetrimino grid looking for a free spot. It recurisvely moves the
 tetrimino to the right and then down until a free spot is found.
+Afterwards the algorithm moves on to the next piece in the input.
+
+The input is passed in as shown below.
 
 input i.e:
 ![alt text](https://github.com/ug02fast/fillit/blob/master/images/input.png "input")
 result i.e:
 ![alt text](https://github.com/ug02fast/fillit/blob/master/images/result.png "result")
 
-
-
+The above result concludes the smallest box grid the tetriminos can fit in
+is 6 by 6 in dimensions.
