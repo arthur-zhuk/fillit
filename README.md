@@ -6,8 +6,9 @@ into the smallest possible square grid.
 
 A **tetrimino** is a 4 block geometric figure as found in the game
 Tetris.
+![alt text](https://github.com/ug02fast/fillit/images/tetrimino.png "Tetrimino")
 
-*fillit* doens't consist of recoding Tetris but rather taking in a
-parameter which contains a list of tetriminos which are 4x4 in size.
+*fillit* doesn't consist of recoding Tetris but rather taking in a
+file as an argument which contains a list of tetriminos which are 4x4 in size.
 Our approach to finding the smallest possible square the pieces could
 fit into involves implementing a backtracking algorithm.
