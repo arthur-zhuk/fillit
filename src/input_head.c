@@ -13,7 +13,7 @@ char	**input_data(char *av)
 		free(ret);
 		return (0);
 	}
-	if(!(num_minos = tetrimino_count(ret)))
+	if (!(num_minos = tetrimino_count(ret)))
 		graceful_exit(ret);
 	if (!(nl_check(ret)))
 		graceful_exit(ret);

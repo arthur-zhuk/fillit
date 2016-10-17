@@ -19,7 +19,6 @@ int		tetrimino_count(char *z)
 	while (z[i] != '\0')
 		i++;
 	i++;
-
 	if (i % 21 != 0)
 		return (0);
 	return (i / 21);
@@ -48,7 +47,7 @@ int		shape_check(char *z, int indx, int prev, int ans)
 	return (ans + 1);
 }
 
-int is_square(char *z, int indx)
+int		is_square(char *z, int indx)
 {
 	int		i;
 	int		j;

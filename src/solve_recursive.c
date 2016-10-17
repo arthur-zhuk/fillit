@@ -27,9 +27,9 @@ int		ft_recursive(char **piece_list, char **grid)
 	t_coord		*gc;
 
 	gc = (t_coord *)malloc(sizeof(t_coord));
-	gc -> x = -1;
-	gc -> y = 0;
-	gc -> size = ft_strlen(grid[0]);
+	gc->x = -1;
+	gc->y = 0;
+	gc->size = ft_strlen(grid[0]);
 	if (piece_list[0] == 0)
 		return (1);
 	while (h_iterate_grid_coord(gc))

@@ -1,13 +1,13 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 
-#include <fcntl.h> 
-#include <stdlib.h>
-#include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-typedef struct 		s_coord
+typedef struct		s_coord
 {
-	int 			y;
+	int				y;
 	int				x;
 	int				size;
 }					t_coord;

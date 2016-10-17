@@ -3,16 +3,16 @@
 
 int		h_iterate_grid_coord(t_coord *coords)
 {
-	if (coords -> x < coords -> size - 1)
+	if (coords->x < coords->size - 1)
 	{
-		coords -> x++;
+		coords->x++;
 		return (1);
 	}
-	else if (coords -> x == coords -> size - 1 
-		&& coords -> y != coords -> size - 1)
+	else if (coords->x == coords->size - 1
+		&& coords->y != coords->size - 1)
 	{
-		coords -> x = 0;
-		coords -> y++;
+		coords->x = 0;
+		coords->y++;
 		return (1);
 	}
 	else
@@ -23,6 +23,7 @@ char	*ft_strdup_n(const char *src, int n)
 {
 	int		i;
 	char	*str;
+
 	str = (char*)malloc(sizeof(char) * (n + 1));
 	if (str == 0)
 		return (NULL);

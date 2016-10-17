@@ -29,7 +29,7 @@ void	prnt_str_to_grid(char *z)
 	{
 		ft_putchar(z[i]);
 		if (i % 4 == 3)
-		ft_putstr("\n");
+			ft_putstr("\n");
 		i++;
 	}
 }
