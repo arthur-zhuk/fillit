@@ -14,7 +14,10 @@ Tetris.
 *fillit* doesn't consist of recoding Tetris but rather taking in a
 file as an argument which contains a list of tetriminos which are 4x4 in size.
 Our approach to finding the smallest possible square the pieces could
-fit into involves implementing a backtracking algorithm.
+fit into involves implementing a backtracking algorithm. The backtracking
+algorithm traverses the map grid using the first empty '.' that correlates
+with a tetrimino grid looking for a free spot. It recurisvely moves the
+tetrimino to the right and then down until a free spot is found.
 
 input i.e:
 ![alt text](https://github.com/ug02fast/fillit/blob/master/images/input.png "input")
