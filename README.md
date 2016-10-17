@@ -1,4 +1,7 @@
-# fillit -- developed by: Zackary Smith & Arthur Zhuk
+# fillit - the smallest square finder!
+
+##developed by: Zackary Smith & Arthur Zhuk
+
 _fillit_ is project that allows for searching for the optimal
 solution among a large set of tetrimino piece possibilities.
 fillit features an algorithm which fits tetriminos together
