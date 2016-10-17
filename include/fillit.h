@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fillit.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/17 12:09:19 by zsmith            #+#    #+#             */
+/*   Updated: 2016/10/17 12:25:15 by zsmith           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FILLIT_H
 # define FILLIT_H
 
@@ -54,7 +66,8 @@ int					ft_strlen_dub(char **str);
 */
 
 int					solve_entrance(char **grid, char **z, t_coord *gc);
-int					s_compare_control(char **m, char **g, t_coord *mc, t_coord *gc);
+int					s_compare_control(char **m,
+						char **g, t_coord *mc, t_coord *gc);
 int					s_place_piece(char **m, char **g, t_coord *mc, t_coord *gc);
 int					s_compare(char **m, char **g, t_coord *mc, t_coord *gc);
 int					h_new_line(t_coord *coords, int size);

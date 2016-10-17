@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solve_placement.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zsmith <zsmith@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/17 12:09:19 by zsmith            #+#    #+#             */
+/*   Updated: 2016/10/17 12:22:53 by zsmith           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/libft.h"
 #include "../include/fillit.h"
 
@@ -44,7 +56,8 @@ int		s_place_piece(char **m, char **g, t_coord *mc, t_coord *gc)
 	k = 0;
 	while (mc->y + k < mc->size && gc->y + k < gc->size)
 	{
-		while (m[mc->y + k][mc->x + i] != '\0' && g[gc->y + k][gc->x + i] != '\0')
+		while (m[mc->y + k][mc->x + i] != '\0'
+			&& g[gc->y + k][gc->x + i] != '\0')
 		{
 			if (m[mc->y + k][mc->x + i] != '.')
 			{
@@ -69,9 +82,11 @@ int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc)
 	k = 0;
 	while (mc->y + k < mc->size && gc->y + k < gc->size)
 	{
-		while (m[mc->y + k][mc->x + i] != '\0' && g[gc->y + k][gc->x + i] != '\0')
+		while (m[mc->y + k][mc->x + i] != '\0'
+			&& g[gc->y + k][gc->x + i] != '\0')
 		{
-			if (m[mc->y + k][mc->x + i] != '.' && g[gc->y + k][gc->x + i] != '.')
+			if (m[mc->y + k][mc->x + i] != '.'
+				&& g[gc->y + k][gc->x + i] != '.')
 				return (0);
 			if (m[mc->y + k][mc->x + i] != '.')
 				j++;
@@ -81,9 +96,7 @@ int		s_compare(char **m, char **g, t_coord *mc, t_coord *gc)
 		k++;
 	}
 	if (j == 4)
-	{
 		return (1);
-	}
 	return (0);
 }
 

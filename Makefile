@@ -15,20 +15,21 @@ SRC = 	input_head.c 		\
 
 OBJ = $(SRC:.c=.o)
 SRCDIR = src/
-INCLUDE = include/
+INCLUDE = include/fillit.h
 
 .PHONY: clean fclean re
 
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(FLAG) $(addprefix $(SRCDIR),$(SRC)) -I $(INCLUDE)
-	gcc -o $(NAME) $(OBJ) $(LFLAGS) 
+	@ gcc -c $(FLAG) $(addprefix $(SRCDIR),$(SRC)) -I $(INCLUDE)
+	@ gcc -o $(NAME) $(OBJ) $(LFLAGS) 
+	@ echo ~~ready~~
 
 clean:
-	/bin/rm -f $(OBJ)
+	@ /bin/rm -f $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@ /bin/rm -f $(NAME)
 
 re: fclean all
