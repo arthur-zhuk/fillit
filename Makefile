@@ -15,7 +15,7 @@ SRC = 	input_head.c 		\
 
 OBJ = $(SRC:.c=.o)
 SRCDIR = src/
-INCLUDE = include/fillit.h
+INCLUDE = include
 
 .PHONY: clean fclean re
 
