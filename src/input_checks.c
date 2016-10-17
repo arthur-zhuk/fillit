@@ -1,7 +1,6 @@
 #include "../include/fillit.h"
 #include "../include/libft.h"
 
-
 int		nl_check(char *z)
 {
 	int		i;
@@ -26,7 +25,7 @@ int		dot_hash_check(char *z)
 	int		i;
 
 	i = 0;
-	while (	z[i] != '\0' )
+	while (z[i] != '\0')
 	{
 		if ((i - (i / 21)) % 5 != 4 && z[i] != '.' && z[i] != '#'
 			&& (i + 1) % 21 != 0)
