@@ -6,7 +6,7 @@ into the smallest possible square grid.
 
 A **tetrimino** is a 4 block geometric figure as found in the game
 Tetris.
-![alt text](https://github.com/ug02fast/fillit/images/tetrimino.png "Tetrimino")
+![alt text](https://github.com/ug02fast/fillit/tree/master/images/tetriminos.png "Tetrimino")
 
 *fillit* doesn't consist of recoding Tetris but rather taking in a
 file as an argument which contains a list of tetriminos which are 4x4 in size.
