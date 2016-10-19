@@ -1,4 +1,4 @@
-# fillit - the smallest square finder!
+# fillit - The Smallest Square Finder!
 
 ##developed by: Zackary Smith & Arthur Zhuk
 
@@ -16,8 +16,8 @@ file as an argument which contains a list of tetriminos which are 4x4 in size.
 Our approach to finding the smallest possible square the pieces could
 fit into involves implementing a backtracking algorithm. The backtracking
 algorithm traverses the map grid using the first empty '.' that correlates
-with a tetrimino grid looking for a free spot. It recurisvely moves the
-tetrimino to the right and then down until a free spot is found.
+with a tetrimino grid looking for a free spot. It recurisvely performs checks
+to move the tetrimino to the correct location and make the placement.
 Afterwards the algorithm moves on to the next piece in the input.
 
 The input is passed in as shown below.
